@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import {UrnaApiService} from "./urna/urna-api.service";
 
 @Component({
   selector: 'app-root',
@@ -7,4 +8,9 @@ import { Component } from '@angular/core';
 })
 export class AppComponent {
   title = 'urna-angular';
+
+  constructor(private urnaApiService: UrnaApiService) {
+
+
+  }
 }
