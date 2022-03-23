@@ -16,7 +16,7 @@
   <img class="brasao" src="assets/imagens/brasao-preto-branco.jpeg" alt="">
   <div class="col-md-6 col-sm-12">
     <div class="login-form">
-      <form method="post" [formGroup]="registerForm">
+      <form [formGroup]="registerForm">
         <div class="form-group">
           <label>Nome do usuário</label>
           <input [formControlName]="'name'" type="text" class="form-control" placeholder="Insira seu nome">
@@ -25,9 +25,9 @@
         <input [formControlName]="'email'" type="email" class="form-control" placeholder="E-mail">
         <div class="form-group">
           <label>Senha</label>
-          <input [formControlName]="'password'" type="password" class="form-control" placeholder="Senha">
+          <input [formControlName]="'password'" type="password" class="form-control" placeholder="Senha" >
         </div>
-        <button (click)="register()" class="btn btn-secondary">Cadastrar</button>
+        <button (click)="register()" class="btn btn-submit">Cadastrar</button>
       </form>
     </div>
   </div>

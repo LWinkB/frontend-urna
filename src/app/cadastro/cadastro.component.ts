@@ -20,7 +20,7 @@ export class CadastroComponent implements OnChanges {
     this.registerForm = this.formBuilder.group({
       'name': new FormControl('',[Validators.required]),
       'email': new FormControl('',[Validators.required, Validators.email]),
-      'password': new FormControl('',[Validators.required])
+      'password': new FormControl('',[Validators.required, Validators.requiredTrue])
     })
   }
 
@@ -37,5 +37,6 @@ export class CadastroComponent implements OnChanges {
       alert('Erro! Preencha todos os campos corretamente para efetuar o cadastro!')
     });
   }
+
 
 }
