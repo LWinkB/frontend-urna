@@ -11,12 +11,4 @@ export class UrnaDatabase {
   ) {
 
   }
-
-
-  // login(data: object, callback: any){
-  //   this.databaseService.get('votes', data)
-  //     .subscribe((res: any) => { callback({data: res}) }, (error: any) => { callback({error}) });
-  // }
-
-
 }

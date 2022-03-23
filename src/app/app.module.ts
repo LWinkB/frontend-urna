@@ -6,26 +6,30 @@ import {AppComponent} from './app.component';
 import {HttpClientModule} from "@angular/common/http";
 import {LoginComponent} from './login/login.component';
 import {UrnaComponent} from './urna/urna.component';
-import {ReactiveFormsModule} from "@angular/forms";
+import { ReactiveFormsModule} from "@angular/forms";
+import {RouterModule} from "@angular/router";
+import {CadastroComponent} from './cadastro/cadastro.component';
 
-import {LoginService} from "./login/login.service";
-import { CadastroComponent } from './cadastro/cadastro.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     LoginComponent,
     UrnaComponent,
-    CadastroComponent
+    CadastroComponent,
+
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
     HttpClientModule,
-    ReactiveFormsModule
+    ReactiveFormsModule,
+    RouterModule,
+
   ],
-  providers: [HttpClientModule, LoginService],
+  providers: [HttpClientModule],
   bootstrap: [AppComponent]
 })
 export class AppModule {
+
 }
