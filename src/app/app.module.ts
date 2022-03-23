@@ -6,6 +6,7 @@ import {AppComponent} from './app.component';
 import {HttpClientModule} from "@angular/common/http";
 import {LoginComponent} from './login/login.component';
 import {UrnaComponent} from './urna/urna.component';
+import {ReactiveFormsModule} from "@angular/forms";
 
 import {LoginService} from "./login/login.service";
 import { CadastroComponent } from './cadastro/cadastro.component';
@@ -20,7 +21,8 @@ import { CadastroComponent } from './cadastro/cadastro.component';
   imports: [
     BrowserModule,
     AppRoutingModule,
-    HttpClientModule
+    HttpClientModule,
+    ReactiveFormsModule
   ],
   providers: [HttpClientModule, LoginService],
   bootstrap: [AppComponent]

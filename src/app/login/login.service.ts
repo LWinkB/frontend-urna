@@ -1,17 +1,21 @@
 import { Injectable } from '@angular/core';
-import {HttpClient} from "@angular/common/http";
-import {Observable} from "rxjs";
+import {HttpClient, HttpHeaders} from "@angular/common/http";
+import {FormBuilder, FormControl, FormGroup, Validator, Validators} from "@angular/forms";
+
 
 @Injectable({
   providedIn: 'root'
 })
 export class LoginService {
 
-  constructor(private http: HttpClient) { }
+  url = 'http://127.0.0.1:8000/api/login';
+  constructor(
+  ) {
+  }
 
 
-
-
+  // UserLogin(email:string, password:string){
+  //     return this.http.post(this.url, 'email' + 'password');
+  //    }
 
 }
-
