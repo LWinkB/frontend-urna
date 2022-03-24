@@ -1,7 +1,8 @@
-import {Component, OnChanges} from '@angular/core';
-import {HttpClient} from "@angular/common/http";
-import {FormBuilder, FormControl, FormGroup, Validators} from "@angular/forms";
+import {Component, OnInit} from '@angular/core';
+import {HttpClient, HttpErrorResponse} from "@angular/common/http";
+import {FormBuilder, FormGroup, Validators} from "@angular/forms";
 import {Router} from "@angular/router";
+import {LoginService} from "../services/login.service";
 
 @Component({
   selector: 'app-login',
@@ -10,36 +11,32 @@ import {Router} from "@angular/router";
 })
 
 
-export class LoginComponent implements OnChanges {
-  url = 'http://127.0.0.1:8000/api/login';
+export class LoginComponent implements OnInit {
 
-  public loginForm: FormGroup;
-  public token: string = '';
+  loginForm!: FormGroup;
 
-  constructor(
-    private router: Router,
-    private http: HttpClient,
-    public formBuilder: FormBuilder,
-  ) {
+  constructor(private router: Router,
+              private http: HttpClient,
+              public formBuilder: FormBuilder,
+              private loginService: LoginService,) {}
+
+
+  ngOnInit() {
     this.loginForm = this.formBuilder.group({
-      'email': new FormControl('', [Validators.required, Validators.email]),
-      'password': new FormControl('', [Validators.required])
+      'email': [null, [Validators.required, Validators.email]],
+      'password': [null, [Validators.required]]
     })
   }
 
-  ngOnChanges() {
+  userLogin(){
+    this.loginService.login(this.loginForm.value).subscribe(
+      (response) => { console.log(response); },
+    (errorResponse: HttpErrorResponse) => {
+      console.log(errorResponse)}
+    );
+
   }
 
-  userLogin() {
-    this.http.post(this.url, this.loginForm.value).subscribe((res) => {
-      if (res) {
-        this.router.navigate(['/votação'])
-        console.log(res)
-      }
-    }, error => {
-     alert('Credenciais inválidas! Faça o seu cadastro para continuar para a etapa de votação')
-    });
-  }
 
   userRegister() {
     this.router.navigate(['/cadastro'])

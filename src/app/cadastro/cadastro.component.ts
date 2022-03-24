@@ -18,9 +18,9 @@ export class CadastroComponent implements OnChanges {
     private formBuilder: FormBuilder,
   ) {
     this.registerForm = this.formBuilder.group({
-      'name': new FormControl('',[Validators.required]),
-      'email': new FormControl('',[Validators.required, Validators.email]),
-      'password': new FormControl('',[Validators.required, Validators.requiredTrue])
+      'name': [null,[Validators.required]],
+      'email': [null,[Validators.required, Validators.email]],
+      'password': [null, [Validators.required, Validators.requiredTrue]]
     })
   }
 

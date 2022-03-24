@@ -16,7 +16,7 @@
 
   <div class="col-md-6 col-sm-12">
     <div class="login-form">
-      <form [formGroup]="loginForm">
+      <form [formGroup]="loginForm" novalidate>
         <div class="form-group">
           <label>Nome do usuário</label>
           <input [formControlName]="'email'" type="text" class="form-control" placeholder="E-mail">

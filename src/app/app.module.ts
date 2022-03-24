@@ -3,18 +3,17 @@ import {BrowserModule} from '@angular/platform-browser';
 
 import {AppRoutingModule} from './app-routing.module';
 import {AppComponent} from './app.component';
-import {HttpClientModule} from "@angular/common/http";
-import {LoginComponent} from './login/login.component';
 import {UrnaComponent} from './urna/urna.component';
 import { ReactiveFormsModule} from "@angular/forms";
 import {RouterModule} from "@angular/router";
 import {CadastroComponent} from './cadastro/cadastro.component';
+import {AuthModule} from "./login/auth.module";
+import {HttpClientModule} from "@angular/common/http";
 
 
 @NgModule({
   declarations: [
     AppComponent,
-    LoginComponent,
     UrnaComponent,
     CadastroComponent,
 
@@ -22,14 +21,19 @@ import {CadastroComponent} from './cadastro/cadastro.component';
   imports: [
     BrowserModule,
     AppRoutingModule,
+    AuthModule,
     HttpClientModule,
     ReactiveFormsModule,
     RouterModule,
 
+
   ],
-  providers: [HttpClientModule],
+  providers: [HttpClientModule,
+
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule {
+
 
 }

@@ -8,9 +8,7 @@ import {Observable} from "rxjs";
 })
 export class UrnaApiService {
 
-  private _url = 'http://127.0.0.1:8000';
-
-  constructor(private http:HttpClient) {}
+  constructor() {}
 
 
 }
