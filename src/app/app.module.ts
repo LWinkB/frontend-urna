@@ -1,4 +1,4 @@
-import {NgModule} from '@angular/core';
+import {ErrorHandler, NgModule} from '@angular/core';
 import {BrowserModule} from '@angular/platform-browser';
 
 import {AppRoutingModule} from './app-routing.module';
@@ -11,6 +11,9 @@ import {AuthModule} from "./login/auth.module";
 import {HTTP_INTERCEPTORS, HttpClientModule} from "@angular/common/http";
 import {AuthenticatedGuard} from "./guards/authenticated.guard";
 import {TokenInterceptors} from "./interceptors/token.interceptors";
+import {LoginComponent} from "./login/login.component";
+import { CadastrarCandidatoComponent } from './cadastrar-candidato/cadastrar-candidato.component';
+
 
 
 @NgModule({
@@ -18,6 +21,10 @@ import {TokenInterceptors} from "./interceptors/token.interceptors";
     AppComponent,
     UrnaComponent,
     CadastroComponent,
+    CadastrarCandidatoComponent,
+
+
+
 
   ],
   imports: [
@@ -32,9 +39,9 @@ import {TokenInterceptors} from "./interceptors/token.interceptors";
   ],
   providers: [
     AuthenticatedGuard,
-    {
-      provide: HTTP_INTERCEPTORS, useClass: TokenInterceptors, multi: true
-    }
+    LoginComponent,
+
+    {provide: HTTP_INTERCEPTORS, useClass: TokenInterceptors, multi: true},
 
   ],
   bootstrap: [AppComponent]

@@ -1,6 +1,4 @@
 import { Component, OnInit } from '@angular/core';
-import {Router} from "@angular/router";
-import {HttpClient} from "@angular/common/http";
 import {AuthService} from "../services/auth.service";
 
 @Component({
@@ -19,7 +17,6 @@ export class UrnaComponent implements OnInit {
   ngOnInit(): void {
 
   }
-
 
 
 

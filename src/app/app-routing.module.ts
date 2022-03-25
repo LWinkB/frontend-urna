@@ -6,15 +6,20 @@ import {CadastroComponent} from "./cadastro/cadastro.component";
 import {UrnaComponent} from "./urna/urna.component";
 
 import {AuthenticatedGuard} from "./guards/authenticated.guard";
+import {ProfileComponent} from "./profile/profile/profile.component";
+import {CadastrarCandidatoComponent} from "./cadastrar-candidato/cadastrar-candidato.component";
 
 const routes: Routes = [
   {
+    //Proteção da rota. Só usuários com token.
     path: '',
     children: [
       {path: '', redirectTo: 'login', pathMatch: 'full'},
       {path: 'login', component: LoginComponent},
       {path: 'cadastro', component: CadastroComponent},
-      {path: 'votação', component: UrnaComponent, canActivate: [AuthenticatedGuard]}, //Proteção da rota. Só usuários com token.
+      {path: 'profile', component: ProfileComponent, canActivate: [AuthenticatedGuard]},
+      {path: 'votação', component: UrnaComponent, canActivate: [AuthenticatedGuard]},
+      {path: 'cadastro-candidato', component: CadastrarCandidatoComponent, canActivate: [AuthenticatedGuard]},
       {path: 'logout',  redirectTo: 'login'}
     ]
   }

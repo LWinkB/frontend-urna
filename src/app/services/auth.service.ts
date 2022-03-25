@@ -3,7 +3,7 @@ import {HttpClient} from "@angular/common/http";
 import {environment} from "../../environments/environment";
 import {Observable, tap} from "rxjs";
 import {Router} from "@angular/router";
-import { firstValueFrom } from 'rxjs';
+import { UserModel} from "../login/user.model";
 
 @Injectable({
   providedIn: 'root'
@@ -37,7 +37,7 @@ export class AuthService {
     })
   }
 
-  getUser() {
+  getUser():UserModel {
     return localStorage.getItem('user') ? JSON.parse(atob(<string>localStorage.getItem('user'))) : null;
   }
 

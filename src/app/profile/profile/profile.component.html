@@ -1,0 +1,15 @@
+
+
+<section class="container">
+
+<h1>Bem vindo, {{user.name}}! Selecione a opção desejada</h1>
+
+<div class="votation">
+<button (click)="redirectToVotation()" class="votationRedirect">Ir para etapa de votação</button>
+</div>
+<div class="registerCandidate">
+  <button (click)="redirectToRegisterCandidate()" class="candidate">Cadastrar candidato</button>
+</div>
+
+</section>
+

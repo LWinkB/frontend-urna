@@ -1,11 +1,12 @@
-import { NgModule } from '@angular/core';
-import { CommonModule } from '@angular/common';
+import {NgModule} from '@angular/core';
+import {CommonModule} from '@angular/common';
 import {ReactiveFormsModule} from "@angular/forms";
 
 
 import {AuthService} from "../services/auth.service";
 import {HttpClientModule} from "@angular/common/http";
 import {LoginComponent} from "./login.component";
+import {ProfileComponent} from "../profile/profile/profile.component";
 
 
 @NgModule({
@@ -15,10 +16,15 @@ import {LoginComponent} from "./login.component";
     HttpClientModule
   ],
   declarations: [
+    LoginComponent,
+    ProfileComponent
+  ],
+  exports: [
     LoginComponent
   ],
-  providers:[
+  providers: [
     AuthService, HttpClientModule
   ]
 })
-export class AuthModule { }
+export class AuthModule {
+}

@@ -43,12 +43,11 @@ export class LoginComponent implements OnInit {
         }
       }
     )
-
   }
-
 
   userRegister() {
     this.router.navigate(['/cadastro'])
+
   }
 
 
