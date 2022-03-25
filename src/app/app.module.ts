@@ -8,7 +8,9 @@ import { ReactiveFormsModule} from "@angular/forms";
 import {RouterModule} from "@angular/router";
 import {CadastroComponent} from './cadastro/cadastro.component';
 import {AuthModule} from "./login/auth.module";
-import {HttpClientModule} from "@angular/common/http";
+import {HTTP_INTERCEPTORS, HttpClientModule} from "@angular/common/http";
+import {AuthenticatedGuard} from "./guards/authenticated.guard";
+import {TokenInterceptors} from "./interceptors/token.interceptors";
 
 
 @NgModule({
@@ -28,7 +30,11 @@ import {HttpClientModule} from "@angular/common/http";
 
 
   ],
-  providers: [HttpClientModule,
+  providers: [
+    AuthenticatedGuard,
+    {
+      provide: HTTP_INTERCEPTORS, useClass: TokenInterceptors, multi: true
+    }
 
   ],
   bootstrap: [AppComponent]

@@ -16,6 +16,9 @@
 
   <div class="col-md-6 col-sm-12">
     <div class="login-form">
+      <div class="alert alert-danger" role="alert" *ngIf="errorCredentials == true">
+        Usuário ou senha inválidos
+      </div>
       <form [formGroup]="loginForm" novalidate>
         <div class="form-group">
           <label>Nome do usuário</label>
