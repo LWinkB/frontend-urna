@@ -1,12 +1,16 @@
-<fieldset>
-
-  <h1>CADASTRO DE CANDIDATO</h1>
-  <form>
+<html>
+<body>
+<div class="container">
+  <div class="logout">
+    <button (click)="logout()" id="logout">Sair</button>
+  </div>
+ <div class="title"><h1>CADASTRO DE CANDIDATO</h1></div>
+  <form [formGroup]="candidateRegister">
     <div class="col-md-6 col-sm-12">
       <div class="candidateRegister">
         <span>Selecione o cargo que o candidato irá disputar!</span>
-        <select name="positions" id="positions">
-          <option value="Presidente">Presidente</option>
+        <select [formControlName]="'cargo'" name="positions" id="positions">
+          <option>Presidente</option>
           <option value="Senador">Senador</option>
           <option value="Deputado Federal">Deputado Federal</option>
           <option value="Deputado Estadual">Deputado Estadual</option>
@@ -14,24 +18,26 @@
         </select>
       </div>
       <div class="form-group">
-        <label>Nome</label>
-        <input type="text" class="form-control" placeholder="nome do candidato">
+        <label class="labelOne">Nome:</label>
+        <input  [formControlName]="'nome'" type="text" class="name" placeholder="nome do candidato" required>
       </div>
       <div class="form-group">
-        <label>Número</label>
-        <input type="password" class="form-control" placeholder="numero do candidato">
+        <label class="labelTwo">Número:</label>
+        <input [formControlName]="'numero'"  type="text" class="number" [mask]="mask"  placeholder="numero do candidato" required>
       </div>
       <div class="form-group">
-        <label>Partido</label>
-        <input type="password" class="form-control" placeholder="partido pelo qual o candidato irá concorrer as eleições ">
+        <label class="labelThree">Partido:</label>
+        <input [formControlName]="'partido'" type="text" class="party" placeholder="partido do candidato" required>
       </div>
       <div class="form-group">
-        <label>imagem do candidato</label>
-        <input type="password" class="form-control" placeholder="insira uma imagem do candidato ">
+        <label class="LabelFour">imagem do candidato:</label>
+        <input [formControlName]="'imgCandidato'" type="file" class="image" required>
       </div>
-      <button type="submit" class="btn btn-submit">Cadastrar</button>
+
+      <button (click)="registerCandidate()" type="submit" class="btn btn-submit">Cadastrar</button>
+      <button (click)="goToVotationStage()" class="votationStage" id="votationStage">Ir para a votação</button>
     </div>
   </form>
-
-
-</fieldset>
+</div>
+</body>
+</html>

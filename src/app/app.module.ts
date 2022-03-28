@@ -13,6 +13,7 @@ import {AuthenticatedGuard} from "./guards/authenticated.guard";
 import {TokenInterceptors} from "./interceptors/token.interceptors";
 import {LoginComponent} from "./login/login.component";
 import { CadastrarCandidatoComponent } from './cadastrar-candidato/cadastrar-candidato.component';
+import { NgxMaskModule, IConfig } from 'ngx-mask'
 
 
 
@@ -34,6 +35,10 @@ import { CadastrarCandidatoComponent } from './cadastrar-candidato/cadastrar-can
     HttpClientModule,
     ReactiveFormsModule,
     RouterModule,
+    NgxMaskModule.forRoot({
+      dropSpecialCharacters: false //mantém a mascara ao salvar
+    }),
+
 
 
   ],

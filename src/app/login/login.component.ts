@@ -34,7 +34,7 @@ export class LoginComponent implements OnInit {
     // chamando a função la do service, pegando as informações do formulario e retornando a rota da urna se as credenciais forem corretas.
     this.loginService.login(this.loginForm.value).subscribe(
       (response) => {
-        this.router.navigate(['/votação'])
+        this.router.navigate(['/profile'])
       },
       (errorResponse: HttpErrorResponse) => {
 
