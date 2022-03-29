@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import {UrnaApiService} from "./urna/urna-api.service";
+import {UrnaApiService} from "./services/urna-api.service";
 
 @Component({
   selector: 'app-root',

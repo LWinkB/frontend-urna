@@ -3,7 +3,7 @@ import {HttpClient} from "@angular/common/http";
 import {environment} from "../../environments/environment";
 import {Observable, tap} from "rxjs";
 import {Router} from "@angular/router";
-import { UserModel} from "../login/user.model";
+import {UserModel} from "../Models/user.model";
 
 @Injectable({
   providedIn: 'root'
@@ -37,14 +37,14 @@ export class AuthService {
     })
   }
 
-  getUser():UserModel {
+  getUser(): UserModel {
     return localStorage.getItem('user') ? JSON.parse(atob(<string>localStorage.getItem('user'))) : null;
   }
 
   setUser(): Promise<boolean> {
     return this.http.get<any>(`${environment.api_url}/user`).toPromise()
-      .then<any>(data =>{
-        if (data.user){
+      .then<any>(data => {
+        if (data.user) {
           localStorage.setItem('user', btoa(JSON.stringify(data.user)));
           return true
         }

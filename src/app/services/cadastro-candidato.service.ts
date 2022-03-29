@@ -16,6 +16,8 @@ export class CadastroCandidatoService {
 
   }
 
+
+
   registerPresident(information: { nome: string, numero: string, partido: string, imgCandidato: string, qtdVotos: string }): Observable<any> {
 
     return this.http.post<any>(`${environment.api_url}/presidente`, information).pipe(tap(data => {
@@ -50,7 +52,6 @@ export class CadastroCandidatoService {
       })
     );
   }
-
 
   userLogged(): boolean {
     return !!localStorage.getItem('user');  //simplificado ? false : true

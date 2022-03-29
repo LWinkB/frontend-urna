@@ -9,11 +9,11 @@
     <div class="col-md-6 col-sm-12">
       <div class="candidateRegister">
         <span>Selecione o cargo que o candidato irá disputar!</span>
-        <select [formControlName]="'cargo'" name="positions" id="positions">
-          <option>Presidente</option>
+        <select (change)="setMask()" [formControlName]="'cargo'" name="positions" id="positions">
+          <option value="Presidente">Presidente</option>
           <option value="Senador">Senador</option>
-          <option value="Deputado Federal">Deputado Federal</option>
-          <option value="Deputado Estadual">Deputado Estadual</option>
+          <option value="DeputadoFederal">Deputado Federal</option>
+          <option value="DeputadoEstadual">Deputado Estadual</option>
           <option value="Governador">Governador</option>
         </select>
       </div>
@@ -23,7 +23,7 @@
       </div>
       <div class="form-group">
         <label class="labelTwo">Número:</label>
-        <input [formControlName]="'numero'"  type="text" class="number" [mask]="mask"  placeholder="numero do candidato" required>
+        <input [formControlName]="'numero'" [mask]="maskNumber" type="text" class="number"  placeholder="numero do candidato" required>
       </div>
       <div class="form-group">
         <label class="labelThree">Partido:</label>

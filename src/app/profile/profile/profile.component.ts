@@ -2,7 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import {HttpClient} from "@angular/common/http";
 import {AuthService} from "../../services/auth.service";
 import {environment} from "../../../environments/environment";
-import {UserModel} from "../../login/user.model";
+import {UserModel} from "../../Models/user.model";
 import {LoginComponent} from "../../login/login.component";
 import {Router} from "@angular/router";
 

@@ -1,4 +1,4 @@
-import {ErrorHandler, NgModule} from '@angular/core';
+import { NgModule} from '@angular/core';
 import {BrowserModule} from '@angular/platform-browser';
 
 import {AppRoutingModule} from './app-routing.module';
@@ -45,6 +45,8 @@ import { NgxMaskModule, IConfig } from 'ngx-mask'
   providers: [
     AuthenticatedGuard,
     LoginComponent,
+
+
 
     {provide: HTTP_INTERCEPTORS, useClass: TokenInterceptors, multi: true},
 

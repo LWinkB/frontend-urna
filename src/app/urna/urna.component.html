@@ -12,11 +12,14 @@
           <span>SEU VOTO PARA</span>
         </div>
         <div class="left2">
-          <span>PRESIDENTE</span>
+          <span>{{position[currentStage]}}</span>
         </div>
         <div class="numberBox">
           <div class="square focus"></div>
           <div class="square"></div>
+          <div *ngIf="qtdNumbers[currentStage] > 2" class="square"></div>
+          <div *ngIf="qtdNumbers[currentStage] > 3" class="square"></div>
+          <div *ngIf="qtdNumbers[currentStage] > 4"  class="square"></div>
         </div>
         <div class="informations">
           Nome: dinamico <br/>
@@ -40,28 +43,13 @@
 
     </div>
   </div>
-
   <div class="keyboard">
     <div class="keyboard-row">
-      <div class="keyboard-button" onclick="clicou(1)">1</div>
-      <div class="keyboard-button" onclick="clicou(2)">2</div>
-      <div class="keyboard-button" onclick="clicou(3)">3</div>
-    </div>
-    <div class="keyboard-row">
-      <div class="keyboard-button" onclick="clicou(4)">4</div>
-      <div class="keyboard-button" onclick="clicou(5)">5</div>
-      <div class="keyboard-button" onclick="clicou(6)">6</div>
+      <div *ngFor="let keyboards of keyboard" (click)="insertNumber(keyboards)" class="numbersKeyboard" >
+        {{keyboards}}
+      </div>
     </div>
 
-    <div class="keyboard-row">
-      <div class="keyboard-button" onclick="clicou(7)">7</div>
-      <div class="keyboard-button" onclick="clicou(8)">8</div>
-      <div class="keyboard-button" onclick="clicou(9)">9</div>
-    </div>
-
-    <div class="keyboard-row">
-      <div class="keyboard-button" onclick="clicou(0)">0</div>
-    </div>
     <div class="keyboard-row">
       <div class="keyboard-button white" onclick="branco()">BRANCO</div>
       <div class="keyboard-button correct" onclick="corrige()">CORRIGE</div>
@@ -70,3 +58,4 @@
 
   </div>
 </div>
+
