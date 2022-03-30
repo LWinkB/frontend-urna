@@ -21,20 +21,20 @@
           <div *ngIf="qtdNumbers[currentStage] > 3" class="square"></div>
           <div *ngIf="qtdNumbers[currentStage] > 4"  class="square"></div>
         </div>
-        <div class="informations">
-          Nome: dinamico <br/>
-          partido: dinamico <br/>
+        <div *ngIf="candidates != []" class="informations">
+          Nome: {{candidates['nome']}}<br/>
+          partido: {{candidates['partido']}} <br/>
         </div>
       </div>
       <div class="div1-right">
         <div class="right1">
           <img src="" alt=""/>
-          Presidente
+              {{candidates['imgCandidato']}}
         </div>
       </div>
     </div>
 
-    <div class="div2">0
+    <div class="div2">
       Aperte a tecla: <br>
       VERDE &emsp;&emsp;para CONFIRMAR este voto
       <br>
