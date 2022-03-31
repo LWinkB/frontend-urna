@@ -5,6 +5,7 @@ import {environment} from "../../../environments/environment";
 import {UserModel} from "../../Models/user.model";
 import {LoginComponent} from "../../login/login.component";
 import {Router} from "@angular/router";
+import {FormsModule} from "@angular/forms";
 
 @Component({
   selector: 'app-profile',

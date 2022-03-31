@@ -23,7 +23,7 @@
       </div>
       <div class="form-group">
         <label class="labelTwo">Número:</label>
-        <input [formControlName]="'numero'" [mask]="maskNumber" type="text" class="number"  placeholder="numero do candidato" required>
+        <input [formControlName]="'numero'"   [mask]="maskNumber" type="text" class="number"  placeholder="numero do candidato" required>
       </div>
       <div class="form-group">
         <label class="labelThree">Partido:</label>
@@ -35,7 +35,7 @@
       </div>
 
       <button (click)="registerCandidate()" type="submit" class="btn btn-submit">Cadastrar</button>
-      <button (click)="goToVotationStage()" class="votationStage" id="votationStage">Ir para a votação</button>
+      <button (click)="goToVotationStage()" class="votationStage"  id="votationStage">Ir para a votação</button>
     </div>
   </form>
 </div>

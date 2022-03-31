@@ -17,34 +17,53 @@
 * {
   margin: 0;
   padding: 0;
-  font-family: sans-serif;
+  font-family: Roboto, "Roboto Light";
   box-sizing: border-box;
+
 }
 
+
+.headerPage {
+  width: 100vw;
+  height: 50px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 25px;
+  font-family: Roboto, serif;
+  font-weight: 1000;
+  letter-spacing: 5px;
+  background-color: #403A3A;
+  color: black;
+}
 
 .urna {
   background-color: #dbd5c9;
   padding: 30px;
   margin: 0;
   display: flex;
+  align-items: center;
   justify-content: center;
-
+  height: 100vh;;
 }
 
 .screen {
-  width: 500px;
-  height: 320px;
+  width: 700px;
+  height: 420px;
   background: linear-gradient(to right, #E8E8E8, #C1C1C1);
   border: 2px solid #555555;
   display: flex;
   flex-direction: column;
+
 
 }
 
 .keyboard {
   background-color: #403A3A;
   margin-left: 30px;
-  max-width: 300px;
+  max-width: 400px;
+  height: 420px;
+  align-items: center;
 
 
 }
@@ -55,11 +74,12 @@
   justify-content: center;
   align-items: flex-end;
 
+
 }
 
 .numbersKeyboard {
-  width: 70px;
-  height: 40px;
+  width: 90px;
+  height: 65px;
   background-color: #000;
   color: white;
   font-size: 25px;
@@ -76,7 +96,7 @@
   height: 40px;
   background-color: #000;
   color: white;
-  font-size: 25px;
+  font-size: 30px;
   display: flex;
   justify-content: center;
   align-items: center;
@@ -119,6 +139,7 @@
   display: flex;
   flex-direction: column;
   padding-left: 20px;
+  font-size: 25px;
 }
 
 .left1 {
@@ -138,6 +159,10 @@
 
 .numberBox {
   height: 50px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-top: 10px;
 
 }
 
@@ -161,8 +186,7 @@
 
 .informations {
   flex: 1;
-  line-height: 30px;
-
+  line-height: 80px;
 }
 
 .div1-right {
@@ -185,16 +209,12 @@
 
 }
 
-.right1.small {
-  width: 80%;
-  font-size: 13px;
-}
 
 .div2 {
-  height: 50px;
-  font-size: 14px;
+  height: 70px;
+  font-size: 18px;
   border-top: 2px solid black;
-  padding-left: 7px;
+  padding-left: 8px;
 
 
 }
@@ -272,6 +292,12 @@ button.link {
   top: -25px;
   background: #f64747;
   cursor: pointer;
+}
+
+.nulo{
+  font-size: 65px;
+  font-weight: bold;
+
 }
 
 

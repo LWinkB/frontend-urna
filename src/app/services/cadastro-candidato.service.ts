@@ -12,11 +12,10 @@ import {Observable, tap} from "rxjs";
 
 export class CadastroCandidatoService {
 
+
   constructor(private http: HttpClient, private router: Router) {
 
   }
-
-
 
   registerPresident(information: { nome: string, numero: string, partido: string, imgCandidato: string, qtdVotos: string }): Observable<any> {
 
@@ -25,7 +24,7 @@ export class CadastroCandidatoService {
     );
   }
 
-  registerSenator(information: { nome: string, numero: string, partido: string, imgCandidato: string, qtdVotos: string }): Observable<any> {
+  registerSenator(information: { nome: string, numero: string, partido: string, imgCandidato: any, qtdVotos: string }): Observable<any> {
 
     return this.http.post<any>(`${environment.api_url}/senador`, information).pipe(tap(data => {
       })

@@ -1,9 +1,10 @@
+<header class="headerPage">JUSTIÇA ELEITORAL</header>
 <div class="urna">
   <div class="linkResult">
-    <button type="submit" class="link"><a class="internalLink" href="#">Resultados Parciais</a></button>
+    <button type="submit" class="link"><a class="internalLink" href="#">RESULTADOS PARCIAIS</a></button>
   </div>
   <div class="logout">
-    <button (click)="auth.logout()" id="logout">Sair</button>
+    <button (click)="auth.logout()" id="logout">SAIR</button>
   </div>
   <div class="screen">
     <div class="div1">
@@ -19,17 +20,23 @@
           <div class="square"></div>
           <div *ngIf="qtdNumbers[currentStage] > 2" class="square"></div>
           <div *ngIf="qtdNumbers[currentStage] > 3" class="square"></div>
-          <div *ngIf="qtdNumbers[currentStage] > 4"  class="square"></div>
+          <div *ngIf="qtdNumbers[currentStage] > 4" class="square"></div>
         </div>
-        <div *ngIf="candidates != []" class="informations">
-          Nome: {{candidates['nome']}}<br/>
-          partido: {{candidates['partido']}} <br/>
+        <div #informations class="informations">
+          <div
+            [hidden]="qtdNumbers[numberPosition] != candidates['numero']" class="nulo focus">VOTO NULO
+          </div>
+          <div
+            [hidden]="qtdNumbers[numberPosition] == candidates['numero']" class="informations">
+            NOME:{{candidates['nome']}}<br>
+            PARTIDO: {{candidates['partido']}} <br/>
+          </div>
         </div>
       </div>
       <div class="div1-right">
         <div class="right1">
           <img src="" alt=""/>
-              {{candidates['imgCandidato']}}
+          {{candidates['imgCandidato']}}
         </div>
       </div>
     </div>
@@ -45,15 +52,15 @@
   </div>
   <div class="keyboard">
     <div class="keyboard-row">
-      <div *ngFor="let keyboards of keyboard" (click)="insertNumber(keyboards)" class="numbersKeyboard" >
+      <div *ngFor="let keyboards of keyboard" (click)="insertNumber(keyboards)" class="numbersKeyboard">
         {{keyboards}}
       </div>
     </div>
 
     <div class="keyboard-row">
-      <div class="keyboard-button white" onclick="branco()">BRANCO</div>
-      <div class="keyboard-button correct" onclick="corrige()">CORRIGE</div>
-      <div class="keyboard-button confirm" onclick="confirma()">CONFIRMA</div>
+      <div class="keyboard-button white" (click)="white()">BRANCO</div>
+      <div class="keyboard-button correct" (click)="correction()">CORRIGE</div>
+      <div class="keyboard-button confirm" (click)="confirm()">CONFIRMA</div>
     </div>
 
   </div>

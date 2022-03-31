@@ -1,11 +1,11 @@
 import {Component, OnInit} from '@angular/core';
-import {FormBuilder, FormGroup, MaxLengthValidator, Validators} from "@angular/forms";
+import {FormBuilder, FormGroup, Validators} from "@angular/forms";
 import {Router} from "@angular/router";
 import {HttpClient} from "@angular/common/http";
 import {CadastroCandidatoService} from "../services/cadastro-candidato.service";
-import {AuthService} from "../services/auth.service";
 import {environment} from "../../environments/environment";
-import {formatNumber} from "@angular/common";
+
+
 
 @Component({
   selector: 'app-cadastrar-candidato',
@@ -16,9 +16,10 @@ export class CadastrarCandidatoComponent implements OnInit {
 
   public candidateRegister: FormGroup;
 
-  public maskNumber: string = '99999'
+  public maskNumber: string = ''
 
   public maskValue: {} = {
+
     Presidente: '99',
     Senador: '999',
     DeputadoFederal:'99999',
@@ -51,7 +52,7 @@ export class CadastrarCandidatoComponent implements OnInit {
   setMask(){
     let position:string = this.candidateRegister.controls['cargo'].value
 
-    this.maskNumber = this.maskValue[position];
+      this.maskNumber = this.maskValue[position];
   }
 
   registerCandidate() {
@@ -82,6 +83,7 @@ export class CadastrarCandidatoComponent implements OnInit {
       })
     }
   }
+
 
   goToVotationStage() {
     this.router.navigate(['/votação'])
