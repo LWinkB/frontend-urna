@@ -294,10 +294,24 @@ button.link {
   cursor: pointer;
 }
 
-.nulo{
+.nulo {
   font-size: 65px;
   font-weight: bold;
+}
 
+.branco {
+  font-size: 55px;
+  font-weight: bold;
+  margin-top: 10px;
+}
+
+.end{
+  display: flex;
+  justify-content: center;
+  align-content: center;
+  align-items: center;
+  font-size: 70px;
+  font-weight: bold;
 }
 
 

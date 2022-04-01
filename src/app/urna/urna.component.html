@@ -7,6 +7,7 @@
     <button (click)="auth.logout()" id="logout">SAIR</button>
   </div>
   <div class="screen">
+    <div class="end focus"></div>
     <div class="div1">
       <div class="div1-left">
         <div class="left1">
@@ -22,16 +23,16 @@
           <div *ngIf="qtdNumbers[currentStage] > 3" class="square"></div>
           <div *ngIf="qtdNumbers[currentStage] > 4" class="square"></div>
         </div>
-        <div #informations class="informations">
-          <div
-            [hidden]="qtdNumbers[numberPosition] != candidates['numero']" class="nulo focus">VOTO NULO
-          </div>
-          <div
-            [hidden]="qtdNumbers[numberPosition] == candidates['numero']" class="informations">
-            NOME:{{candidates['nome']}}<br>
-            PARTIDO: {{candidates['partido']}} <br/>
-          </div>
+
+        <div *ngIf="showInformations" class="informations">
+          NOME: {{candidates['nome']}}<br>
+          PARTIDO: {{candidates['partido']}} <br/>
         </div>
+        <div *ngIf="showNull" class="nulo focus">
+          VOTO NULO
+        </div>
+        <div *ngIf="whiteVote" class="branco focus">VOTO EM BRANCO</div>
+
       </div>
       <div class="div1-right">
         <div class="right1">

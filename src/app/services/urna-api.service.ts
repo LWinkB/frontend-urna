@@ -17,10 +17,8 @@ export class UrnaApiService {
   }
 
   public getPresidentInformations(numero: any): Observable<CandidatosModel> {
-
     return this.http.get<any>(`${environment.api_url}/presidente/` + numero)
   }
-
 
   public getSenatorInformations(numero: any): Observable<CandidatosModel> {
     return this.http.get<any>(`${environment.api_url}/senador/` + numero)
