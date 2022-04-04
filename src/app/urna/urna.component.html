@@ -1,22 +1,24 @@
 <header class="headerPage">JUSTIÇA ELEITORAL</header>
 <div class="urna">
-  <div class="linkResult">
-    <button type="submit" class="link"><a class="internalLink" href="#">RESULTADOS PARCIAIS</a></button>
-  </div>
+
+<div  class="parcialResult">
+  <button id="parcialResult">Resultados parciais</button>
+</div>
   <div class="logout">
     <button (click)="auth.logout()" id="logout">SAIR</button>
   </div>
+
   <div class="screen">
-    <div class="end focus"></div>
+    <div *ngIf="finish" class="end focus">FIM!</div>
     <div class="div1">
       <div class="div1-left">
         <div class="left1">
-          <span>SEU VOTO PARA</span>
+          <span *ngIf="!finish">SEU VOTO PARA</span>
         </div>
         <div class="left2">
           <span>{{position[currentStage]}}</span>
         </div>
-        <div class="numberBox">
+        <div *ngIf="!finish" class="numberBox">
           <div class="square focus"></div>
           <div class="square"></div>
           <div *ngIf="qtdNumbers[currentStage] > 2" class="square"></div>
@@ -35,14 +37,14 @@
 
       </div>
       <div class="div1-right">
-        <div class="right1">
-          <img src="" alt=""/>
-          {{candidates['imgCandidato']}}
+        <div *ngIf="!finish" class="right1">
+          <img [src]="candidates['imgCandidato']" alt=""/>
+
         </div>
       </div>
     </div>
 
-    <div class="div2">
+    <div *ngIf="!finish" class="div2">
       Aperte a tecla: <br>
       VERDE &emsp;&emsp;para CONFIRMAR este voto
       <br>
@@ -59,9 +61,10 @@
     </div>
 
     <div class="keyboard-row">
-      <div class="keyboard-button white" (click)="white()">BRANCO</div>
-      <div class="keyboard-button correct" (click)="correction()">CORRIGE</div>
-      <div class="keyboard-button confirm" (click)="confirm()">CONFIRMA</div>
+      <div class="final-text" *ngIf="finish">Votação encerrada! Obrigado pela sua colaboração com o país.</div>
+      <div class="keyboard-button white" *ngIf="!finish" (click)="white()">BRANCO</div>
+      <div class="keyboard-button correct"  *ngIf="!finish"(click)="correction()">CORRIGE</div>
+      <div class="keyboard-button confirm"  *ngIf="!finish"(click)="confirm()">CONFIRMA</div>
     </div>
 
   </div>

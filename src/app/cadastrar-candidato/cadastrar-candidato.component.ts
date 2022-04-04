@@ -44,7 +44,6 @@ export class CadastrarCandidatoComponent implements OnInit {
 
   }
 
-
   ngOnInit(): void {
 
   }

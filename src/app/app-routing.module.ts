@@ -8,6 +8,7 @@ import {UrnaComponent} from "./urna/urna.component";
 import {AuthenticatedGuard} from "./guards/authenticated.guard";
 import {ProfileComponent} from "./profile/profile/profile.component";
 import {CadastrarCandidatoComponent} from "./cadastrar-candidato/cadastrar-candidato.component";
+import {VotosParciaisComponent} from "./urna/votos-parciais/votos-parciais.component";
 
 const routes: Routes = [
   {
@@ -20,7 +21,8 @@ const routes: Routes = [
       {path: 'profile', component: ProfileComponent, canActivate: [AuthenticatedGuard]},
       {path: 'votação', component: UrnaComponent, canActivate: [AuthenticatedGuard]},
       {path: 'cadastro-candidato', component: CadastrarCandidatoComponent, canActivate: [AuthenticatedGuard]},
-      {path: 'logout',  redirectTo: 'login'}
+      {path: 'votacao-parcial', component: VotosParciaisComponent, canActivate: [AuthenticatedGuard]},
+      {path: 'logout', redirectTo: 'login'}
     ]
   }
 

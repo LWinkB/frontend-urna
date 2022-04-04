@@ -30,8 +30,8 @@
         <input [formControlName]="'partido'" type="text" class="party" placeholder="partido do candidato" required>
       </div>
       <div class="form-group">
-        <label class="LabelFour">imagem do candidato:</label>
-        <input [formControlName]="'imgCandidato'" type="file" class="image" required>
+        <label class="LabelFour" id="labelImage">imagem do candidato:</label>
+        <input [formControlName]="'imgCandidato'" type="file"  class="image" required>
       </div>
 
       <button (click)="registerCandidate()" type="submit" class="btn btn-submit">Cadastrar</button>

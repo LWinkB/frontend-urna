@@ -1,7 +1,9 @@
-import {Component, ElementRef, OnInit, AfterContentInit, ViewChild, ViewChildren} from '@angular/core';
+import {Component, ElementRef, OnInit} from '@angular/core';
 import {AuthService} from "../services/auth.service";
 import {UrnaApiService} from "../services/urna-api.service";
 import {HttpClient} from "@angular/common/http";
+import {ActivatedRoute, Router} from "@angular/router";
+import {CandidatosModel} from "../Models/candidatos.model";
 
 @Component({
   selector: 'app-urna',
@@ -14,6 +16,7 @@ export class UrnaComponent implements OnInit {
 
   keyboard: number[] = [1, 2, 3, 4, 5, 6, 7, 8, 9, 0]
   getNumberOfCandidate: any = '';
+  getVotes: any = 0
   showInformations: boolean = false
   showNull: boolean = false
   whiteVote: boolean = false
@@ -29,11 +32,13 @@ export class UrnaComponent implements OnInit {
   public dom: HTMLElement;
   public actualSquare: NodeListOf<Element>;
 
+
   constructor(
     public auth: AuthService,
     public elementRef: ElementRef,
     public urnaApiService: UrnaApiService,
-    http: HttpClient
+    private route: Router,
+    private router: ActivatedRoute
   ) {
     this.dom = this.elementRef.nativeElement;
   }
@@ -41,16 +46,17 @@ export class UrnaComponent implements OnInit {
 
   ngOnInit(): void {
 
+
   }
 
   getPresident(): void {
     this.urnaApiService.getPresidentInformations(this.getNumberOfCandidate).subscribe(
       data => {
         this.candidates = data
-        if (this.candidates['length'] == 0){
+        if (this.candidates['length'] == 0) {
           this.showNull = true
           this.showInformations = false
-        }else{
+        } else {
           this.showInformations = true
           this.showNull = false
         }
@@ -60,10 +66,10 @@ export class UrnaComponent implements OnInit {
   getSenator() {
     this.urnaApiService.getSenatorInformations(this.getNumberOfCandidate).subscribe(data => {
       this.candidates = data
-      if (this.candidates['length'] == 0){
+      if (this.candidates['length'] == 0) {
         this.showNull = true
         this.showInformations = false
-      }else{
+      } else {
         this.showInformations = true
         this.showNull = false
       }
@@ -73,10 +79,10 @@ export class UrnaComponent implements OnInit {
   getGovernor() {
     this.urnaApiService.getGovernorInformations(this.getNumberOfCandidate).subscribe(data => {
       this.candidates = data
-      if (this.candidates['length'] == 0){
+      if (this.candidates['length'] == 0) {
         this.showNull = true
         this.showInformations = false
-      }else{
+      } else {
         this.showInformations = true
         this.showNull = false
       }
@@ -86,10 +92,10 @@ export class UrnaComponent implements OnInit {
   getStateDeputy() {
     this.urnaApiService.getStateDeputyInformation(this.getNumberOfCandidate).subscribe(data => {
       this.candidates = data
-      if (this.candidates['length'] == 0){
+      if (this.candidates['length'] == 0) {
         this.showNull = true
         this.showInformations = false
-      }else{
+      } else {
         this.showInformations = true
         this.showNull = false
       }
@@ -99,15 +105,53 @@ export class UrnaComponent implements OnInit {
   getCongressman() {
     this.urnaApiService.getCongressmanInformation(this.getNumberOfCandidate).subscribe(data => {
       this.candidates = data
-      if (this.candidates['length'] == 0){
+      if (this.candidates['length'] == 0) {
         this.showNull = true
         this.showInformations = false
-      }else{
+      } else {
         this.showInformations = true
         this.showNull = false
       }
     })
   }
+
+  updatePresidentVotes() {
+    console.log(this.candidates)
+    this.urnaApiService.insertPresidentVotes(this.candidates['id']).subscribe(data =>{
+      this.getVotes = data
+    })
+
+  }
+
+  updateCongressmanVotes() {
+    this.urnaApiService.insertCongressmanVotes(this.candidates['id']).subscribe(data => {
+      this.getVotes = data
+    })
+
+  }
+
+  updateStateDeputyVotes() {
+    this.urnaApiService.insertStateDeputyVotes(this.candidates['id']).subscribe(data => {
+      this.getVotes = data
+    })
+
+  }
+
+
+  updateSenatorVotes() {
+    this.urnaApiService.insertSenatorVotes(this.candidates['id']).subscribe(data => {
+      this.getVotes = data
+    })
+
+  }
+
+  updateGovernorVotes() {
+    this.urnaApiService.insertGovernorVotes(this.candidates['id']).subscribe(data => {
+      this.getVotes = data
+    })
+
+  }
+
 
   insertNumber(keyboards) {
 
@@ -146,17 +190,6 @@ export class UrnaComponent implements OnInit {
           this.getPresident()
           break;
       }
-      console.log(this.candidates)
-
-
-      // this.showInformations = this.getNumberOfCandidate[this.currentStage] == this.candidates['length'];
-      // if (this.getNumberOfCandidate[this.currentStage] == []) { //esta validação ta bichada
-      //   this.showInformations = true
-      //   console.log('here')
-      // } else {
-      //  this.showNull = true
-      //   console.log('...')
-      // }
     }
   }
 
@@ -196,27 +229,43 @@ export class UrnaComponent implements OnInit {
     let confirmVotes: boolean = false
     if (this.whiteVote === true) {
       confirmVotes = true
-      console.log('white vote');
 
     } else if (this.numberPosition == (this.qtdNumbers[this.currentStage])) {
       confirmVotes = true
-      console.log('all done')
-    }
+      switch (this.currentStage) {
+        case 0:
+          this.updateCongressmanVotes()
+          break;
+        case 1:
+          this.updateStateDeputyVotes()
+          break;
+        case 2:
+         this.updateSenatorVotes()
+          break;
+        case 3:
+        this.updateGovernorVotes()
+          break;
+        case 4:
+          this.updatePresidentVotes()
+          break;
+      }
 
+    }
     if (confirmVotes == true) {
       this.currentStage++
 
-      if (this.currentStage < 5) {
-        this.updateDisplay()
-      } else {
-        this.whiteVote = false;
-        this.showNull = false;
-        this.showInformations = false
-        document.querySelector('.end').innerHTML = 'FIM!';
-        document.querySelector('.left1 span').innerHTML = '';
-        document.querySelector('.numberBox').innerHTML = '';
-
-        }
-      }
     }
+    if (this.currentStage < 5) {
+      this.updateDisplay()
+    } else {
+      this.whiteVote = false;
+      this.finish = true
+      this.showNull = false;
+      this.showInformations = false
+
+    }
+  }
 }
+
+
+

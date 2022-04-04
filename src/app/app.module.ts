@@ -13,7 +13,8 @@ import {AuthenticatedGuard} from "./guards/authenticated.guard";
 import {TokenInterceptors} from "./interceptors/token.interceptors";
 import {LoginComponent} from "./login/login.component";
 import { CadastrarCandidatoComponent } from './cadastrar-candidato/cadastrar-candidato.component';
-import { NgxMaskModule, IConfig } from 'ngx-mask'
+import { NgxMaskModule, IConfig } from 'ngx-mask';
+import { VotosParciaisComponent } from './urna/votos-parciais/votos-parciais.component'
 
 
 
@@ -23,6 +24,7 @@ import { NgxMaskModule, IConfig } from 'ngx-mask'
     UrnaComponent,
     CadastroComponent,
     CadastrarCandidatoComponent,
+    VotosParciaisComponent,
 
 
 
