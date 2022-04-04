@@ -39,7 +39,6 @@ export class CadastrarCandidatoComponent implements OnInit {
       'partido': [null, [Validators.required]],
       'imgCandidato': [null, [Validators.required]],
       'cargo': [null, [Validators.nullValidator]]
-
     })
 
   }
