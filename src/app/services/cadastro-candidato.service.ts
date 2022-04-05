@@ -3,6 +3,7 @@ import {HttpClient, HttpHeaders} from "@angular/common/http";
 import {Router} from "@angular/router";
 import {environment} from "../../environments/environment";
 import {Observable, tap} from "rxjs";
+import {DatabaseService} from "../core/database.service";
 
 
 @Injectable({
@@ -12,46 +13,59 @@ import {Observable, tap} from "rxjs";
 
 export class CadastroCandidatoService {
 
-
-  constructor(private http: HttpClient) {
-
+  constructor(
+    private http: HttpClient,
+    private databaseService: DatabaseService
+  ) {
   }
 
-
-  registerPresident(information: { nome: string, numero: string, partido: string, imgCandidato, qtdVotos: string }): Observable<any> {
-
-    return this.http.post<any>(`${environment.api_url}/presidente`, information).pipe(tap(data => {
+  postPresident(data, callback) {
+    this.databaseService.post('/presidente', data)
+      .subscribe((res) => {
+        callback({data: res})
+      }, (error) => {
+        callback({error})
       })
-    );
+
   }
 
-  registerSenator(information: { nome: string, numero: string, partido: string, imgCandidato: any, qtdVotos: string }): Observable<any> {
-
-    return this.http.post<any>(`${environment.api_url}/senador`, information).pipe(tap(data => {
+  postSenator(data, callback) {
+    this.databaseService.post('/senador', data)
+      .subscribe((res) => {
+        callback({data: res})
+      }, (error) => {
+        callback({error})
       })
-    );
+
   }
 
-  registerGovernor(information: { nome: string, numero: string, partido: string, imgCandidato: string, qtdVotos: string }): Observable<any> {
-
-    return this.http.post<any>(`${environment.api_url}/governador`, information).pipe(tap(data => {
+  postCongressman(data, callback) {
+    this.databaseService.post('/deputado-federal', data)
+      .subscribe((res) => {
+        callback({data: res})
+      }, (error) => {
+        callback({error})
       })
-    );
   }
 
-  registerStateDeputy(information: { nome: string, numero: string, partido: string, imgCandidato: string, qtdVotos: string }): Observable<any> {
-
-    return this.http.post<any>(`${environment.api_url}/deputado-estadual`, information).pipe(tap(data => {
+  postStateDeputy(data, callback) {
+    this.databaseService.post('/deputado-estadual', data)
+      .subscribe((res) => {
+        callback({data: res})
+      }, (error) => {
+        callback({error})
       })
-    );
   }
 
-  registerCongressman(information: { nome: string, numero: string, partido: string, imgCandidato: string, qtdVotos: string }): Observable<any> {
-
-    return this.http.post<any>(`${environment.api_url}/deputado-federal`, information).pipe(tap(data => {
+  postGovernor(data, callback) {
+    this.databaseService.post('/governador', data)
+      .subscribe((res) => {
+        callback({data: res})
+      }, (error) => {
+        callback({error})
       })
-    );
   }
+
 
   userLogged(): boolean {
     return !!localStorage.getItem('user');  //simplificado ? false : true

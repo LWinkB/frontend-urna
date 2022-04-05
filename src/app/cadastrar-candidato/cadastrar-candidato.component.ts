@@ -14,7 +14,8 @@ import {environment} from "../../environments/environment";
 })
 export class CadastrarCandidatoComponent implements OnInit {
 
-  public candidateRegister: FormGroup;
+
+  public candidateForm: FormGroup;
 
   public maskNumber: string = ''
 
@@ -22,7 +23,7 @@ export class CadastrarCandidatoComponent implements OnInit {
 
     Presidente: '99',
     Senador: '999',
-    DeputadoFederal:'99999',
+    DeputadoFederal: '99999',
     DeputadoEstadual: '9999',
     Governador: '99',
   }
@@ -33,51 +34,103 @@ export class CadastrarCandidatoComponent implements OnInit {
     private router: Router,
     private cadastroCandidatoService: CadastroCandidatoService
   ) {
-    this.candidateRegister = this.formBuilder.group({
+    this.candidateForm = this.formBuilder.group({
       'nome': [null, [Validators.required]],
       'numero': [null, [Validators.required]],
       'partido': [null, [Validators.required]],
-      'imgCandidato': [null, [Validators.required]],
       'cargo': [null, [Validators.nullValidator]]
     })
 
   }
 
+  selectedFile: File = null;
+
   ngOnInit(): void {
 
   }
 
-  setMask(){
-    let position:string = this.candidateRegister.controls['cargo'].value
+  setMask() {
+    let position: string = this.candidateForm.controls['cargo'].value
 
-      this.maskNumber = this.maskValue[position];
+    this.maskNumber = this.maskValue[position];
+  }
+
+  onFileSelected(event) {
+    this.selectedFile = <File>event.target.files[0];
+    console.log(this.selectedFile)
+  }
+
+
+
+  validForm(): boolean {
+    let isValid: boolean = true;
+
+    let fieldList: string[] = ['nome', 'numero', 'partido', 'cargo'];
+    fieldList.forEach(field => {
+      if (!this.candidateForm.get(field).valid) {
+        isValid = false;
+      }
+    })
+    if (!isValid) {
+      alert('preencha os campos obrigatórios');
+      return false
+    }
+    console.log(this.selectedFile)
+    if (this.selectedFile == null) {
+      alert('Insira a imagem');
+      isValid = false;
+    }
+
+    return isValid;
   }
 
   registerCandidate() {
 
-    let position = this.candidateRegister.controls['cargo'].value
+    if (!this.validForm()) {
+      return
+    }
+
+    let position = this.candidateForm.controls['cargo'].value
+    let formData = new FormData();
+    // formData.append('candidateForm', JSON.stringify(this.candidateForm.value));
+    formData.append('imgCandidato', this.selectedFile);
+    formData.append('numero', this.candidateForm.get('numero').value);
+    formData.append('nome', this.candidateForm.get('nome').value);
+    formData.append('partido', this.candidateForm.get('partido').value);
+    formData.append('cargo', this.candidateForm.get('cargo').value);
 
     if (position == 'Presidente') {
-
-      this.cadastroCandidatoService.registerPresident(this.candidateRegister.value).subscribe((response: any) => {
-        alert('Candidato cadastrado para concorrer à Presidente!')
+      this.cadastroCandidatoService.postPresident(formData, (response) => {
+        if (!response.error) {
+          alert('Candidato cadastrado para concorrer à Presidente!')
+        }
       })
 
     } else if (position == 'Senador') {
-      this.cadastroCandidatoService.registerSenator(this.candidateRegister.value).subscribe((response) => {
-        alert('Candidado cadastrado para concorrer à Senador!')
+      this.cadastroCandidatoService.postSenator(formData, (response) => {
+        if (!response.error) {
+          alert('Candidado cadastrado para concorrer à Senador!')
+        }
       })
+
     } else if (position == 'Governador') {
-      this.cadastroCandidatoService.registerGovernor(this.candidateRegister.value).subscribe((response: any) => {
-        alert('Candidato cadastrado para concorrer à Governador')
+      this.cadastroCandidatoService.postGovernor(formData, (response) => {
+        if (!response.error) {
+          alert('Candidado cadastrado para concorrer à Governador!')
+        }
       })
+
     } else if (position == 'DeputadoEstadual') {
-      this.cadastroCandidatoService.registerStateDeputy(this.candidateRegister.value).subscribe((response: any) => {
-        alert('Candidato cadastrado para concorrer à Deputado Estadual')
+      this.cadastroCandidatoService.postStateDeputy(formData, (response) => {
+        if (!response.error) {
+          alert('Candidado cadastrado para concorrer à Deputado Estadual!')
+        }
       })
     } else if (position == 'DeputadoFederal') {
-      this.cadastroCandidatoService.registerCongressman(this.candidateRegister.value).subscribe((response: any) => {
-        alert('Candidato cadastrado para concorrer à Deputado Federal')
+      this.cadastroCandidatoService.postCongressman(formData, (response) => {
+        if (!response.error) {
+          alert('Candidado cadastrado para concorrer à Deputado Federal!')
+        }
       })
     }
   }

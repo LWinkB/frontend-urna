@@ -5,7 +5,7 @@
     <button (click)="logout()" id="logout">Sair</button>
   </div>
  <div class="title"><h1>CADASTRO DE CANDIDATO</h1></div>
-  <form [formGroup]="candidateRegister">
+  <form [formGroup]="candidateForm">
     <div class="col-md-6 col-sm-12">
       <div class="candidateRegister">
         <span>Selecione o cargo que o candidato irá disputar!</span>
@@ -31,7 +31,7 @@
       </div>
       <div class="form-group">
         <label class="LabelFour" id="labelImage">imagem do candidato:</label>
-        <input [formControlName]="'imgCandidato'" type="file"  class="image" required>
+        <input type="file" (change)="onFileSelected($event)" class="image" required>
       </div>
 
       <button (click)="registerCandidate()" type="submit" class="btn btn-submit">Cadastrar</button>

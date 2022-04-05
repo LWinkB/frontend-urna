@@ -10,7 +10,7 @@ import {CadastroComponent} from './cadastro/cadastro.component';
 import {AuthModule} from "./login/auth.module";
 import {HTTP_INTERCEPTORS, HttpClientModule} from "@angular/common/http";
 import {AuthenticatedGuard} from "./guards/authenticated.guard";
-import {TokenInterceptors} from "./interceptors/token.interceptors";
+// import {TokenInterceptors} from "./interceptors/token.interceptors";
 import {LoginComponent} from "./login/login.component";
 import { CadastrarCandidatoComponent } from './cadastrar-candidato/cadastrar-candidato.component';
 import { NgxMaskModule, IConfig } from 'ngx-mask';
@@ -50,7 +50,7 @@ import { VotosParciaisComponent } from './urna/votos-parciais/votos-parciais.com
 
 
 
-    {provide: HTTP_INTERCEPTORS, useClass: TokenInterceptors, multi: true},
+    // {provide: HTTP_INTERCEPTORS, useClass: TokenInterceptors, multi: true},
 
   ],
   bootstrap: [AppComponent]
