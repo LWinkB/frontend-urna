@@ -1,8 +1,8 @@
 <header class="headerPage">JUSTIÇA ELEITORAL</header>
 <div class="urna">
 
-<div  class="parcialResult">
-  <button id="parcialResult">Resultados parciais</button>
+<div class="parcialResult">
+  <button (click)="goToParicalResults()" id="parcialResult">Resultados parciais</button>
 </div>
   <div class="logout">
     <button (click)="auth.logout()" id="logout">SAIR</button>
@@ -40,6 +40,8 @@
         <div *ngIf="!finish" class="right1">
           <img [src]="candidates['imgCandidato']" alt=""/>
 
+<!--          [src]="asset('/public/imgCandidato/'. candidates['imgCandidato'])"-->
+
         </div>
       </div>
     </div>
@@ -49,7 +51,6 @@
       VERDE &emsp;&emsp;para CONFIRMAR este voto
       <br>
       LARANJA &emsp;para REINICIAR este voto
-
 
     </div>
   </div>
@@ -63,8 +64,8 @@
     <div class="keyboard-row">
       <div class="final-text" *ngIf="finish">Votação encerrada! Obrigado pela sua colaboração com o país.</div>
       <div class="keyboard-button white" *ngIf="!finish" (click)="white()">BRANCO</div>
-      <div class="keyboard-button correct"  *ngIf="!finish"(click)="correction()">CORRIGE</div>
-      <div class="keyboard-button confirm"  *ngIf="!finish"(click)="confirm()">CONFIRMA</div>
+      <div class="keyboard-button correct"  *ngIf="!finish" (click)="correction()">CORRIGE</div>
+      <div class="keyboard-button confirm"  *ngIf="!finish" (click)="confirm()">CONFIRMA</div>
     </div>
 
   </div>

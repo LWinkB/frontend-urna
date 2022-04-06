@@ -15,6 +15,8 @@ import {LoginComponent} from "./login/login.component";
 import { CadastrarCandidatoComponent } from './cadastrar-candidato/cadastrar-candidato.component';
 import { NgxMaskModule, IConfig } from 'ngx-mask';
 import { VotosParciaisComponent } from './urna/votos-parciais/votos-parciais.component'
+import {TokenInterceptors} from "./interceptors/token.interceptors";
+import {ProfileComponent} from "./profile/profile/profile.component";
 
 
 
@@ -47,10 +49,11 @@ import { VotosParciaisComponent } from './urna/votos-parciais/votos-parciais.com
   providers: [
     AuthenticatedGuard,
     LoginComponent,
+    ProfileComponent,
 
 
 
-    // {provide: HTTP_INTERCEPTORS, useClass: TokenInterceptors, multi: true},
+    {provide: HTTP_INTERCEPTORS, useClass: TokenInterceptors, multi: true},
 
   ],
   bootstrap: [AppComponent]

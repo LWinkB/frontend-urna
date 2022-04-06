@@ -4,6 +4,7 @@ import {environment} from "../../environments/environment";
 import {Observable, tap} from "rxjs";
 import {Router} from "@angular/router";
 import {UserModel} from "../Models/user.model";
+import {DatabaseService} from "../core/database.service";
 
 @Injectable({
   providedIn: 'root'
@@ -29,11 +30,11 @@ export class AuthService {
     );
   }
 
-  logout() {
+  logout(): void {
     this.http.get(`${environment.api_url}/logout`).subscribe(response => {
       console.log(response);
       localStorage.clear();
-      this.router.navigate(['/login'])
+      this.router.navigate(['/login']);
     })
   }
 

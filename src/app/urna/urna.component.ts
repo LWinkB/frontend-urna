@@ -265,6 +265,12 @@ export class UrnaComponent implements OnInit {
 
     }
   }
+
+  goToParicalResults(){
+    this.route.navigate(['/votacao-parcial'])
+  }
+
+
 }
 
 

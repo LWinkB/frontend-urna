@@ -15,7 +15,7 @@ import {FormsModule} from "@angular/forms";
 export class ProfileComponent implements OnInit {
 
   user!: UserModel
-  constructor(private auth: AuthService, private http: HttpClient,  public login: LoginComponent, private router: Router) { }
+  constructor(private auth: AuthService, private http: HttpClient, public login: LoginComponent, private router: Router) { }
 
   ngOnInit(): void {
     this.http.get<any>(`${environment.api_url}/user`).subscribe(data=>{
@@ -32,5 +32,8 @@ export class ProfileComponent implements OnInit {
     this.router.navigate(['/cadastro-candidato'])
   }
 
+  redirectToParcialVotation(){
+    this.router.navigate(['/votacao-parcial'])
+  }
 
 }

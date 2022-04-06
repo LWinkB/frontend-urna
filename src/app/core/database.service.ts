@@ -30,8 +30,11 @@ export class DatabaseService {
       .pipe(tap(res => {}, (error) => {}));
   }
 
-
-
+  get(url, params, authenticated){
+    let header = this.createHeader(authenticated);
+    return this.httpClient.get(this.databaseUrl + url, {headers:header, params: params['']})
+      .pipe(tap(res=>{},(error => {})));
+  }
 
 }
 

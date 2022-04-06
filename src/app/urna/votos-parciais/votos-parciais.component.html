@@ -1,0 +1,56 @@
+<header>VOTAÇÃO PARCIAL DAS ELEIÇÕES 2022
+  <span (click)="auth.logout()" class="logout">SAIR</span>
+  <span (click)="profile.redirectToVotation()" class="votation">VOTAR</span>
+</header>
+
+<section class="container">
+
+  <div class="President">
+    <span class="title">PRESIDENTE</span>
+    <ul *ngFor="let candidates of candidatesPresident">
+      <span class="candidate">CANDIDATO:</span> {{candidates['nome']}}
+      <span class="votes">VOTOS ATUAIS:</span> {{candidates['qtdVotos']}}
+    </ul>
+  </div>
+
+
+  <div class="Senator">
+    <span class="title">SENADOR</span>
+    <ul *ngFor="let candidates of candidatesSenator">
+      <span class="candidate">CANDIDATO:</span>{{candidates['nome']}}
+      <br>
+      <span class="votes">VOTOS ATUAIS:</span> {{candidates['qtdVotos']}}
+    </ul>
+  </div>
+
+  <div class="Governor">
+    <span class="title">GOVERNADOR</span>
+    <ul *ngFor="let candidates of candidatesGovernor">
+      <span class="candidate">CANDIDATO:</span> {{candidates['nome']}}
+      <br>
+      <span class="votes">VOTOS ATUAIS:</span> {{candidates['qtdVotos']}}
+    </ul>
+  </div>
+
+
+  <div class="Deputy">
+    <span class="title">DEPUTADO ESTADUAL</span>
+    <ul *ngFor="let candidates of candidatesDeputy">
+      <span class="candidate">CANDIDATO:</span> {{candidates['nome']}}
+      <br>
+      <span class="votes">VOTOS ATUAIS:</span> {{candidates['qtdVotos']}}
+
+    </ul>
+  </div>
+
+
+  <div class="Congressman">
+    <span class="title">DEPUTADO FEDERAL</span>
+    <ul *ngFor="let candidates of candidatesCongressman">
+      <span class="candidate">CANDIDATO:</span>  {{candidates['nome']}}
+      <br>
+      <span class="votes">VOTOS ATUAIS:</span>  {{candidates['qtdVotos']}}
+    </ul>
+  </div>
+
+</section>

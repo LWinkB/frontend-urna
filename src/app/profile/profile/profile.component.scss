@@ -36,7 +36,7 @@ h1{
 
 }
 
-.votation, .registerCandidate{
+.votation, .registerCandidate, .goToParcialVotation{
   display:flex;
   justify-content: center;
   align-items: center;
@@ -44,7 +44,7 @@ h1{
 
 }
 
-.votationRedirect, .candidate{
+.votationRedirect, .candidate, .parcialVotation{
   background-color: #578ec4;
   color: #000000;
   width: 200px;
@@ -54,7 +54,7 @@ h1{
   cursor: pointer;
   max-width: 400px;
 
-
-
 }
+
+
 
