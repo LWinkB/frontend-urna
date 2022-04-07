@@ -1,7 +1,8 @@
-import {Component, OnChanges, OnInit} from '@angular/core';
+import {Component, OnChanges} from '@angular/core';
 import {Router} from "@angular/router";
 import {HttpClient} from "@angular/common/http";
-import {FormBuilder, FormControl, FormGroup, Validators} from "@angular/forms";
+import {FormBuilder, FormGroup, Validators} from "@angular/forms";
+import {NavigateService} from "../shared/navigate.service";
 
 @Component({
   selector: 'app-cadastro',
@@ -13,13 +14,13 @@ export class CadastroComponent implements OnChanges {
   public registerForm: FormGroup;
 
   constructor(
-    private router:Router,
     private http: HttpClient,
     private formBuilder: FormBuilder,
+    public navigateService: NavigateService
   ) {
     this.registerForm = this.formBuilder.group({
-      'name': [null,[Validators.required]],
-      'email': [null,[Validators.required, Validators.email]],
+      'name': [null, [Validators.required]],
+      'email': [null, [Validators.required, Validators.email]],
       'password': [null, [Validators.required, Validators.requiredTrue]]
     })
   }
@@ -27,16 +28,15 @@ export class CadastroComponent implements OnChanges {
   ngOnChanges() {
   }
 
-  register(){
-    this.http.post(this.url, this.registerForm.value).subscribe((res)=>{
-      if (res){
+  register() {
+    this.http.post(this.url, this.registerForm.value).subscribe((res) => {
+      if (res) {
         alert('Cadastrado com sucesso! Clique aqui para voltar para página de login!')
-        this.router.navigate(['/login'])
+        this.navigateService.navigateToLogin()
       }
     }, error => {
       alert('Erro! Preencha todos os campos corretamente para efetuar o cadastro!')
     });
   }
-
 
 }

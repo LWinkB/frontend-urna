@@ -1,20 +1,26 @@
 
-
-<section class="container">
-
-<header class="headerPage">JUSTIÇA ELEITORAL</header>
-<h1>Bem vindo, {{user.name}}! Selecione a opção desejada</h1>
-
-  <div class="votation">
-<button (click)="redirectToVotation()" class="votationRedirect">Ir para etapa de votação</button>
+<div class="container">
+  <div class="card__container">
+    <div class="card">
+      <div class="card__content">
+        <h3 class="card__header">Ir para a etapa de votação</h3>
+        <p class="card__info">Exerça seu direito ao voto. O seu futuro aqui e agora!</p>
+        <button (click)="redirectToVotation()" class="card__button">Votação</button>
+      </div>
+    </div>
+    <div class="card">
+      <div class="card__content">
+        <h3 class="card__header">Registro de candidato</h3>
+        <p class="card__info">Deseja se candidatar? Conhece alguém que queira?</p>
+        <button (click)="redirectToRegisterCandidate()" class="card__button">Registrar candidato</button>
+      </div>
+    </div>
+    <div class="card">
+      <div class="card__content">
+        <h3 class="card__header">Resultados parciais</h3>
+        <p class="card__info">Veja quantos votos tem cada candidato que está concorrendo as eleições</p>
+        <button (click)="redirectToParcialVotation()" class="card__button">Resultados Parciais</button>
+      </div>
+    </div>
   </div>
-<div class="registerCandidate">
-  <button (click)="redirectToRegisterCandidate()" class="candidate">Cadastrar candidato</button>
 </div>
-
-  <div class="goToParcialVotation">
-    <button (click)="redirectToParcialVotation()" class="parcialVotation">Votação Parcial</button>
-  </div>
-
-</section>
-

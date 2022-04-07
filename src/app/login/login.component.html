@@ -1,123 +1,31 @@
-
 <div class="container">
   <div class="forms-container">
     <div class="signin-signup">
       <form [formGroup]="loginForm" novalidate class="sign-in-form">
-        <h2 class="title">Logar</h2>
+        <h2 class="title">Entrar</h2>
         <div class="input-field">
           <input [formControlName]="'email'" type="text" placeholder="E-mail"/>
         </div>
         <div class="input-field">
-          <input [formControlName]="'password'" type="password" placeholder="Password" />
+          <input [formControlName]="'password'" type="password" placeholder="Password"/>
         </div>
-        <input (click)="userLogin()" type="submit" value="Login" class="btn solid" />
+        <input (click)="userLogin()" type="submit" value="Login" class="btn solid"/>
       </form>
-<!--      <form action="#" class="sign-up-form">-->
-<!--        <h2 class="title">Sign up</h2>-->
-<!--        <div class="input-field">-->
-<!--          <i class="fas fa-user"></i>-->
-<!--          <input type="text" placeholder="Username" />-->
-<!--        </div>-->
-<!--        <div class="input-field">-->
-<!--          <i class="fas fa-envelope"></i>-->
-<!--          <input type="email" placeholder="Email" />-->
-<!--        </div>-->
-<!--        <div class="input-field">-->
-<!--          <i class="fas fa-lock"></i>-->
-<!--          <input type="password" placeholder="Password" />-->
-<!--        </div>-->
-<!--        <input type="submit" class="btn" value="Sign up" />-->
-
-<!--      </form>-->
     </div>
   </div>
-
   <div class="panels-container">
     <div class="panel left-panel">
       <div class="content">
-        <h3>New here ?</h3>
+        <img class="image" src="assets/imagens/tse-logo.png" alt="">
+        <h3>Ainda não tem uma conta?</h3>
         <p>
-          Lorem ipsum, dolor sit amet consectetur adipisicing elit. Debitis,
-          ex ratione. Aliquid!
+          Crie agora mesmo sua conta e faça parte do futuro do seu País!
         </p>
-        <button  (click)="userRegister()"class="btn transparent" id="sign-up-btn">
+        <button (click)="userRegister()" class="btn transparent" id="sign-up-btn">
           cadastre-se
         </button>
       </div>
-      <img src="" class="image" alt="" />
+      <img src="" class="image" alt=""/>
     </div>
-<!--    <div class="panel right-panel">-->
-<!--      <div class="content">-->
-<!--        <h3>One of us ?</h3>-->
-<!--        <p>-->
-<!--          Lorem ipsum dolor sit amet consectetur adipisicing elit. Nostrum-->
-<!--          laboriosam ad deleniti.-->
-<!--        </p>-->
-<!--        <button class="btn transparent" id="sign-in-btn">-->
-<!--          -->
-<!--        </button>-->
-<!--      </div>-->
-<!--      <img src="" class="image" alt="" />-->
-<!--    </div>-->
-<!--  </div>-->
-<!--</div>-->
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-<!--<link href="//maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">-->
-<!--<script src="//maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"></script>-->
-<!--<script src="//code.jquery.com/jquery-1.11.1.min.js"></script>-->
-
-<!--<div class="container">-->
-
-
-<!--<section>-->
-<!--<header class="headerPage">JUSTIÇA ELEITORAL-->
-<!--</header>-->
-<!--<div class="sidenav">-->
-<!--  <div class="login-main-text">-->
-<!--    <h2>Urna Eletrônica</h2>-->
-<!--    <p>Faça seu login para avançar para o processo de votação</p>-->
-<!--    <p>Não tem uma conta? cadastre-se agora mesmo! </p>-->
-
-<!--  </div>-->
-<!--</div>-->
-<!--<div class="main">-->
-<!--  <img class="brasao" src="https://www.tse.jus.br/imagens/imagens/tse-logo-eleicoes-2022/@@images/c64cb83a-f470-45b6-b764-b703d278a487.jpeg" alt="">-->
-
-<!--  <div class="col-md-6 col-sm-12">-->
-<!--    <div class="login-form">-->
-<!--      <div class="alert alert-danger" role="alert" *ngIf="errorCredentials == true">-->
-<!--        Usuário ou senha inválidos-->
-<!--      </div>-->
-<!--      <form [formGroup]="loginForm" novalidate>-->
-<!--        <div class="form-group">-->
-<!--          <label> E-mail</label>-->
-<!--          <input [formControlName]="'email'" type="text" class="form-control" placeholder="E-mail">-->
-<!--        </div>-->
-<!--        <div class="form-group">-->
-<!--          <label>Senha</label>-->
-<!--          <input [formControlName]="'password'" type="password" class="form-control" placeholder="Senha">-->
-<!--        </div>-->
-<!--        <button (click)="userLogin()" class="btn btn-submit">Entrar</button>-->
-<!--        <button  (click)="userRegister()" type="submit" class="btn btn-submit">Cadastrar</button>-->
-<!--      </form>-->
-<!--    </div>-->
-<!--  </div>-->
-<!--</div>-->
-<!--</section>-->
-<!--</div>-->
+  </div>
+</div>

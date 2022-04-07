@@ -1,13 +1,11 @@
-<header class="headerPage">JUSTIÇA ELEITORAL</header>
+<header>
+  <nav class="navMenu">
+    <span (click)="navigateService.navigateToParcialVotes()" >Resultados parciais</span>
+    <span (click)="navigateService.navigateToRegisterCandidate()">Cadastrar Candidato</span>
+    <span (click)="auth.logout()">Sair</span>
+  </nav>
+</header>
 <div class="urna">
-
-<div class="parcialResult">
-  <button (click)="goToParicalResults()" id="parcialResult">Resultados parciais</button>
-</div>
-  <div class="logout">
-    <button (click)="auth.logout()" id="logout">SAIR</button>
-  </div>
-
   <div class="screen">
     <div *ngIf="finish" class="end focus">FIM!</div>
     <div class="div1">
@@ -21,9 +19,9 @@
         <div *ngIf="!finish" class="numberBox">
           <div class="square focus"></div>
           <div class="square"></div>
-          <div *ngIf="qtdNumbers[currentStage] > 2" class="square"></div>
-          <div *ngIf="qtdNumbers[currentStage] > 3" class="square"></div>
-          <div *ngIf="qtdNumbers[currentStage] > 4" class="square"></div>
+          <div *ngIf="qtdNumbers[currentStage]> 2" class="square"></div>
+          <div *ngIf="qtdNumbers[currentStage]> 3" class="square"></div>
+          <div *ngIf="qtdNumbers[currentStage]> 4" class="square"></div>
         </div>
 
         <div *ngIf="showInformations" class="informations">
@@ -39,9 +37,6 @@
       <div class="div1-right">
         <div *ngIf="!finish" class="right1">
           <img [src]="candidates['imgCandidato']" alt=""/>
-
-<!--          [src]="asset('/public/imgCandidato/'. candidates['imgCandidato'])"-->
-
         </div>
       </div>
     </div>

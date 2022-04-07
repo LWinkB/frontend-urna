@@ -2,7 +2,7 @@
 <body>
 <div class="container">
   <div class="logout">
-    <button (click)="logout()" id="logout">Sair</button>
+    <button (click)="authService.logout()" id="logout">Sair</button>
   </div>
  <div class="title"><h1>CADASTRO DE CANDIDATO</h1></div>
   <form [formGroup]="candidateForm">
@@ -35,7 +35,7 @@
       </div>
 
       <button (click)="registerCandidate()" type="submit" class="btn btn-submit">Cadastrar</button>
-      <button (click)="goToVotationStage()" class="votationStage"  id="votationStage">Ir para a votação</button>
+      <button (click)="navigateService.navigateToVotation()" class="votationStage"  id="votationStage">Ir para a votação</button>
     </div>
   </form>
 </div>

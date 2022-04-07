@@ -1,9 +1,9 @@
 import {Component, OnInit} from '@angular/core';
 import {FormBuilder, FormGroup, Validators} from "@angular/forms";
-import {Router} from "@angular/router";
 import {HttpClient} from "@angular/common/http";
 import {CadastroCandidatoService} from "../services/cadastro-candidato.service";
-import {environment} from "../../environments/environment";
+import {NavigateService} from "../shared/navigate.service";
+import {AuthService} from "../services/auth.service";
 
 
 
@@ -31,8 +31,9 @@ export class CadastrarCandidatoComponent implements OnInit {
   constructor(
     private formBuilder: FormBuilder,
     private http: HttpClient,
-    private router: Router,
-    private cadastroCandidatoService: CadastroCandidatoService
+    private cadastroCandidatoService: CadastroCandidatoService,
+    public navigateService: NavigateService,
+    public authService: AuthService
   ) {
     this.candidateForm = this.formBuilder.group({
       'nome': [null, [Validators.required]],
@@ -133,20 +134,6 @@ export class CadastrarCandidatoComponent implements OnInit {
         }
       })
     }
-  }
-
-
-  goToVotationStage() {
-    this.router.navigate(['/votação'])
-  }
-
-
-  logout() {
-    this.http.get(`${environment.api_url}/logout`).subscribe(response => {
-      console.log(response);
-      localStorage.clear();
-      this.router.navigate(['/login'])
-    })
   }
 }
 

@@ -1,34 +1,37 @@
-<link href="//maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
-<script src="//maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"></script>
-<script src="//code.jquery.com/jquery-1.11.1.min.js"></script>
-<!------ Include the above in your HEAD tag ---------->
-
-<div class="sidenav">
-  <div class="login-main-text">
-    <h2>Processo de cadastro </h2>
-    <p>Cadastre-se agora mesmo!!</p>
-    <p>Rapido, fácil e seguro!</p>
-
-
-  </div>
-</div>
-<div class="main">
-  <img class="brasao" src="assets/imagens/brasao-preto-branco.jpeg" alt="">
-  <div class="col-md-6 col-sm-12">
-    <div class="login-form">
-      <form [formGroup]="registerForm">
-        <div class="form-group">
-          <label>Nome do usuário</label>
-          <input [formControlName]="'name'" type="text" class="form-control" placeholder="Insira seu nome">
+<div class="container">
+  <div class="forms-container">
+    <div class="signin-signup">
+      <form [formGroup]="registerForm" class="sign-in-form">
+        <h2 class="title">CADASTRO</h2>
+        <div class="input-field">
+          <input [formControlName]="'name'" type="text" placeholder="Nome de Usuário"/>
         </div>
-        <label>Email</label>
-        <input [formControlName]="'email'" type="email" class="form-control" placeholder="E-mail">
-        <div class="form-group">
-          <label>Senha</label>
-          <input [formControlName]="'password'" type="password" class="form-control" placeholder="Senha" >
+
+        <div class="input-field">
+          <input [formControlName]="'email'" type="email" placeholder="E-mail"/>
         </div>
-        <button (click)="register()" class="btn btn-submit">Cadastrar</button>
+
+        <div class="input-field">
+          <input [formControlName]="'password'" type="password" placeholder="Senha"/>
+        </div>
+        <input (click)="register()" type="submit" value="Cadastrar" class="btn solid"/>
       </form>
+    </div>
+  </div>
+
+
+  <div class="panels-container">
+    <div class="panel left-panel">
+      <img class="image" src="assets/imagens/tse-logo.png" alt="">
+      <div class="content">
+        <h3>Já tem uma conta?</h3>
+        <p>
+          Faça seu login agora mesmo e faça sua parte pelo país! #Brasil
+        </p>
+        <button (click)=navigateService.navigateToLogin() class="btn transparent" id="sign-up-btn">
+          Entrar
+        </button>
+      </div>
     </div>
   </div>
 </div>

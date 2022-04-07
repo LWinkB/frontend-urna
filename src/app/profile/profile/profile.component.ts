@@ -5,7 +5,6 @@ import {environment} from "../../../environments/environment";
 import {UserModel} from "../../Models/user.model";
 import {LoginComponent} from "../../login/login.component";
 import {Router} from "@angular/router";
-import {FormsModule} from "@angular/forms";
 
 @Component({
   selector: 'app-profile',
@@ -21,6 +20,7 @@ export class ProfileComponent implements OnInit {
     this.http.get<any>(`${environment.api_url}/user`).subscribe(data=>{
       console.log(data);
       this.user = data.user
+
     })
   }
 

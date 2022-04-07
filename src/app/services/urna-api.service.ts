@@ -14,7 +14,6 @@ qtdVotos:any
 
   constructor(private http: HttpClient) {
 
-
   }
 
   //GET CANDIDATES
@@ -63,8 +62,6 @@ qtdVotos:any
     return this.http.put<any>(`${environment.api_url}/governador/${$id}`, this.qtdVotos)
 
   }
-
-
 
 
 }

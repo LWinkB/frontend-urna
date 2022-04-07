@@ -1,24 +1,40 @@
-header {
-  display: flex;
-  width: 100%;
-  height: 100px;
-  justify-content: center;
-  align-items: center;
-  font-size: 50px;
-  font-weight: bold;
-  background-color: #010913;
-  color: white;
-}
 
-section {
+.container {
   display: flex;
   background-image: linear-gradient(#1f576c, #084078);
-  margin: auto;
+
 }
 
-div {
-  border: 1px solid black;
+.navMenu{
+  position: absolute;
+  display: flex;
+  justify-content: right;
+  background-color: #081f38;
+  width: 100%;
+  height: 50px;
+}
+
+.navMenu span  {
+  display: inline-block;
   margin: 20px;
+  color: #ffffff;
+  text-decoration: none;
+  font-size: 1.2em;
+  text-transform: uppercase;
+  font-weight: 500;
+  -webkit-transition: all 0.2s ease-in-out;
+  transition: all 0.2s ease-in-out;
+  cursor: pointer;
+}
+
+.navMenu span:hover {
+  color: #fddb3a;
+}
+
+
+.card {
+  border: 1px solid black;
+  margin: 100px 20px;
   height: 100vh;
   width: 20%;
   background-color: #e8dada;

@@ -2,16 +2,15 @@ import {Injectable} from '@angular/core';
 import {HttpClient} from "@angular/common/http";
 import {environment} from "../../environments/environment";
 import {Observable, tap} from "rxjs";
-import {Router} from "@angular/router";
 import {UserModel} from "../Models/user.model";
-import {DatabaseService} from "../core/database.service";
+import {NavigateService} from "../shared/navigate.service";
 
 @Injectable({
   providedIn: 'root'
 })
 export class AuthService {
 
-  constructor(private http: HttpClient, private router: Router) {
+  constructor(private http: HttpClient, private navigateService: NavigateService) {
   }
 
   //verificando se tem um usuário logado
@@ -34,7 +33,8 @@ export class AuthService {
     this.http.get(`${environment.api_url}/logout`).subscribe(response => {
       console.log(response);
       localStorage.clear();
-      this.router.navigate(['/login']);
+      this.navigateService.navigateToLogin()
+
     })
   }
 

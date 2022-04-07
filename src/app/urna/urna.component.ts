@@ -1,9 +1,8 @@
 import {Component, ElementRef, OnInit} from '@angular/core';
 import {AuthService} from "../services/auth.service";
 import {UrnaApiService} from "../services/urna-api.service";
-import {HttpClient} from "@angular/common/http";
 import {ActivatedRoute, Router} from "@angular/router";
-import {CandidatosModel} from "../Models/candidatos.model";
+import {NavigateService} from "../shared/navigate.service";
 
 @Component({
   selector: 'app-urna',
@@ -22,7 +21,6 @@ export class UrnaComponent implements OnInit {
   whiteVote: boolean = false
   finish: boolean = false
 
-
   public position: string[] = ['DEPUTADO FEDERAL', 'DEPUTADO ESTADUAL', 'SENADOR', 'GOVERNADOR', 'PRESIDENTE'];
   public qtdNumbers: number[] = [5, 4, 3, 2, 2];
 
@@ -37,15 +35,12 @@ export class UrnaComponent implements OnInit {
     public auth: AuthService,
     public elementRef: ElementRef,
     public urnaApiService: UrnaApiService,
-    private route: Router,
-    private router: ActivatedRoute
+    public navigateService: NavigateService,
   ) {
     this.dom = this.elementRef.nativeElement;
   }
 
-
   ngOnInit(): void {
-
 
   }
 
@@ -207,9 +202,7 @@ export class UrnaComponent implements OnInit {
 
   }
 
-
   white() {
-
     if (this.getNumberOfCandidate == '') {
       this.showInformations = false
       this.showNull = false
@@ -221,7 +214,6 @@ export class UrnaComponent implements OnInit {
 
   correction() {
     this.updateDisplay()
-
   }
 
   confirm() {
@@ -265,11 +257,6 @@ export class UrnaComponent implements OnInit {
 
     }
   }
-
-  goToParicalResults(){
-    this.route.navigate(['/votacao-parcial'])
-  }
-
 
 }
 

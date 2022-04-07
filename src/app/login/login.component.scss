@@ -6,7 +6,7 @@
   box-sizing: border-box;
 }
 
-body,
+
 input {
   font-family: "Poppins", sans-serif;
 }
@@ -51,11 +51,6 @@ form {
   grid-row: 1 / 2;
 }
 
-form.sign-up-form {
-  opacity: 0;
-  z-index: 1;
-}
-
 form.sign-in-form {
   z-index: 2;
 }
@@ -80,6 +75,7 @@ form.sign-in-form {
 
 
 .input-field input {
+  padding: 20px;
   background: none;
   outline: none;
   border: none;
@@ -97,7 +93,7 @@ form.sign-in-form {
 
 .btn {
   width: 150px;
-  background-color: #5995fd;
+  background-color: #0e95e3;
   border: none;
   outline: none;
   height: 49px;
@@ -111,7 +107,7 @@ form.sign-in-form {
 }
 
 .btn:hover {
-  background-color: #4d84e2;
+  background-color: #3672db;
 }
 .panels-container {
   position: absolute;
@@ -131,14 +127,16 @@ form.sign-in-form {
   top: -10%;
   right: 48%;
   transform: translateY(-50%);
-  background-image: linear-gradient(-45deg, #4481eb 0%, #04befe 100%);
+  background-image: linear-gradient(-45deg, #4481eb 20%, #04befe 100%);
   transition: 1.8s ease-in-out;
   border-radius: 50%;
   z-index: 6;
 }
 
 .image {
-  width: 100%;
+  padding-bottom: 30px;
+  display: flex;
+  width: 50%;
   transition: transform 1.1s ease-in-out;
   transition-delay: 0.4s;
 }
@@ -171,12 +169,12 @@ form.sign-in-form {
 .panel h3 {
   font-weight: 600;
   line-height: 1;
-  font-size: 1.5rem;
+  font-size: 1.8rem;
 }
 
 .panel p {
-  font-size: 0.95rem;
-  padding: 0.7rem 0;
+  font-size: 1.3rem;
+  padding: 1.2rem 0;
 }
 
 .btn.transparent {
@@ -361,90 +359,24 @@ form.sign-in-form {
     left: 50%;
   }
 }
-//
-//.alert-danger{
-//  background-color: #f64747;
-//
-//}
-//
-//.sidenav {
-//  height: 100%;
-//  background: #578ec4;
-//  overflow-x: hidden;
-//  padding-top: 20px;
-//  font-size: 20px;
-//}
-//
-//
-//
-//.main {
-//  padding: 0 10px;
-//
-//}
-//
-//@media screen and (max-height: 450px) {
-//  .sidenav {padding-top: 15px;}
-//}
-//
-//@media screen and (max-width: 450px) {
-//  .login-form{
-//    margin-top: 10%;
-//  }
-//
-//  .register-form{
-//    margin-top: 10%;
-//  }
-//}
-//
-//@media screen and (min-width: 768px){
-//  .main{
-//    margin-left: 40%;
-//  }
-//
-//  .sidenav{
-//    width: 40%;
-//    position: fixed;
-//    z-index: 1;
-//    top: 0;
-//    left: 0;
-//  }
-//
-//  .login-form{
-//    margin-top: 80%;
-//  }
-//
-//  .register-form{
-//    margin-top: 20%;
-//  }
-//}
-//
-//
-//.login-main-text{
-//  margin-top: 20%;
-//  padding: 60px;
-//  color: #fff;
-//
-//}
-//
-//.login-main-text h2{
-//  font-weight: 300;
-//  font-size: 60px;
-//}
-//
-//.btn-submit{
-//  background-color: #4c9a63 !important;
-//  color: #fff;
-//  border: 1px solid black;
-//  margin-right: 5px;
-//}
-//
-//.brasao{
-//  display: flex;
-//  position: absolute;
-//  right: 20px;
-//  top: 20px;
-//  max-height: 100vh;
-//  width: 400px;
-//  height: 350px;
-//
-//}
+
+@media screen and (max-height: 450px) {
+  .sidenav {padding-top: 15px;}
+}
+
+@media screen and (max-width: 450px) {
+  .login-form{
+    margin-top: 10%;
+  }
+
+  .register-form{
+    margin-top: 10%;
+  }
+}
+
+@media screen and (min-width: 768px) {
+  .main {
+    margin-left: 40%;
+  }
+}
+
