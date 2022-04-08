@@ -3,6 +3,7 @@ import {HttpClient, HttpErrorResponse} from "@angular/common/http";
 import {FormBuilder, FormGroup, Validators} from "@angular/forms";
 import {Router} from "@angular/router";
 import {AuthService} from "../services/auth.service";
+import {NavigateService} from "../shared/navigate.service";
 
 @Component({
   selector: 'app-login',
@@ -19,7 +20,8 @@ export class LoginComponent implements OnInit {
   constructor(private router: Router,
               private http: HttpClient,
               public formBuilder: FormBuilder,
-              private loginService: AuthService,) {
+              private loginService: AuthService,
+              public navigateService: NavigateService) {
   }
 
 
@@ -33,8 +35,8 @@ export class LoginComponent implements OnInit {
   userLogin() {
     // chamando a função la do service, pegando as informações do formulario e retornando a rota da urna se as credenciais forem corretas.
     this.loginService.login(this.loginForm.value).subscribe(
-      (response) => {
-        this.router.navigate(['/profile'])
+      (res) => {
+        this.navigateService.navigateToProfile()
       },
       (errorResponse: HttpErrorResponse) => {
 

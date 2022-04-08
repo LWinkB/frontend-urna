@@ -44,9 +44,10 @@ export class UrnaComponent implements OnInit {
   }
 
   getPresident(): void {
-    this.urnaApiService.getPresidentInformations(this.getNumberOfCandidate).subscribe(
+    this.urnaApiService.getPresidentData(this.getNumberOfCandidate).subscribe(
       data => {
         this.candidates = data;
+        console.log(this.candidates)
         if (this.candidates['length'] == 0) {
           this.showNull = true;
           this.candidates = {id:31};
@@ -59,7 +60,8 @@ export class UrnaComponent implements OnInit {
   }
 
   getSenator() {
-    this.urnaApiService.getSenatorInformations(this.getNumberOfCandidate).subscribe(data => {
+    this.urnaApiService.getSenatorData(this.getNumberOfCandidate).subscribe(
+      data => {
       this.candidates = data
       if (this.candidates['length'] == 0) {
         this.showNull = true
@@ -73,7 +75,7 @@ export class UrnaComponent implements OnInit {
   }
 
   getGovernor() {
-    this.urnaApiService.getGovernorInformations(this.getNumberOfCandidate).subscribe(data => {
+    this.urnaApiService.getGovernorData(this.getNumberOfCandidate).subscribe(data => {
       this.candidates = data
       if (this.candidates['length'] == 0) {
         this.showNull = true
@@ -87,7 +89,7 @@ export class UrnaComponent implements OnInit {
   }
 
   getStateDeputy() {
-    this.urnaApiService.getStateDeputyInformation(this.getNumberOfCandidate).subscribe(data => {
+    this.urnaApiService.getStateDeputyData(this.getNumberOfCandidate).subscribe(data => {
       this.candidates = data
       if (this.candidates['length'] == 0) {
         this.showNull = true
@@ -101,7 +103,7 @@ export class UrnaComponent implements OnInit {
   }
 
   getCongressman() {
-    this.urnaApiService.getCongressmanInformation(this.getNumberOfCandidate).subscribe(data => {
+    this.urnaApiService.getCongressmanData(this.getNumberOfCandidate).subscribe(data => {
       this.candidates = data
       if (this.candidates['length'] == 0) {
         this.showNull = true
@@ -115,7 +117,7 @@ export class UrnaComponent implements OnInit {
   }
 
   updatePresidentVotes() {
-    this.urnaApiService.insertPresidentVotes(this.candidates['id']).subscribe(data => {
+    this.urnaApiService.updateVotesOfPresident(this.candidates['id']).subscribe(data => {
       this.getVotes = data
 
     })
@@ -123,32 +125,30 @@ export class UrnaComponent implements OnInit {
   }
 
   updateCongressmanVotes() {
-    this.urnaApiService.insertCongressmanVotes(this.candidates['id']).subscribe(data => {
+    this.urnaApiService.updateVotesOfCongressman(this.candidates['id']).subscribe(data => {
       this.getVotes = data
     })
   }
 
   updateStateDeputyVotes() {
-    this.urnaApiService.insertStateDeputyVotes(this.candidates['id']).subscribe(data => {
+    this.urnaApiService.updateVotesOfStateDeputy(this.candidates['id']).subscribe(data => {
       this.getVotes = data
     })
   }
 
 
   updateSenatorVotes() {
-    this.urnaApiService.insertSenatorVotes(this.candidates['id']).subscribe(data => {
+    this.urnaApiService.updateVotesOfSenator(this.candidates['id']).subscribe(data => {
       this.getVotes = data
     })
 
   }
 
   updateGovernorVotes() {
-    this.urnaApiService.insertGovernorVotes(this.candidates['id']).subscribe(data => {
+    this.urnaApiService.updateVotesOfGovernor(this.candidates['id']).subscribe(data => {
       this.getVotes = data
     })
-
   }
-
 
   insertNumber(keyboards) {
 
@@ -268,7 +268,12 @@ export class UrnaComponent implements OnInit {
 
     }
     if (confirmVotes == true) {
+      let audio = new Audio();
+      audio.src = "../assets/audio/assets_audios_ConfirmarVoto.old.wav";
+      audio.load();
+      audio.play();
       this.currentStage++
+
 
     }
     if (this.currentStage < 5) {

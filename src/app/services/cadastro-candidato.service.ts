@@ -1,8 +1,4 @@
 import {Injectable} from "@angular/core";
-import {HttpClient, HttpHeaders} from "@angular/common/http";
-import {Router} from "@angular/router";
-import {environment} from "../../environments/environment";
-import {Observable, tap} from "rxjs";
 import {DatabaseService} from "../core/database.service";
 
 
@@ -14,7 +10,6 @@ import {DatabaseService} from "../core/database.service";
 export class CadastroCandidatoService {
 
   constructor(
-    private http: HttpClient,
     private databaseService: DatabaseService
   ) {
   }

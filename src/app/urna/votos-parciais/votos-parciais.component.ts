@@ -31,6 +31,8 @@ export class VotosParciaisComponent implements OnInit {
     this.getCongressmans()
   }
 
+
+
   public getPresidentInformations(): Observable<CandidatosModel> {
       return this.http.get<any>(`${environment.api_url}/presidente/`)
     }

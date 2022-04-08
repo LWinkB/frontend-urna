@@ -26,14 +26,34 @@ export class DatabaseService {
 
   post(url, body, authenticated = true) {
     let header = this.createHeader(authenticated);
-    return this.httpClient.post(this.databaseUrl  + url, body, {headers: header})
-      .pipe(tap(res => {}, (error) => {}));
+    return this.httpClient.post(this.databaseUrl + url, body, {headers: header})
+      .pipe(tap(res => {
+      }, (error) => {
+      }));
   }
 
-  get(url, params, authenticated){
+  get(url, params, authenticated = true) {
     let header = this.createHeader(authenticated);
-    return this.httpClient.get(this.databaseUrl + url, {headers:header, params: params['']})
-      .pipe(tap(res=>{},(error => {})));
+    return this.httpClient.get(this.databaseUrl + url, {headers: header, params: params})
+      .pipe(tap(res => {
+      }, (error => {
+      })));
+  }
+
+  delete(url, params, authenticated: boolean) {
+    let header = this.createHeader(authenticated);
+    return this.httpClient.post(this.databaseUrl + url, {headers: header, params: params})
+      .pipe(tap(resp => {
+      }, error => {
+      }));
+  }
+
+  put(url, body, authenticated = true) {
+    let header = this.createHeader(authenticated);
+    return this.httpClient.put(this.databaseUrl + url, body, {headers: header})
+      .pipe(tap(resp => {
+      }, error => {
+      }));
   }
 
 }

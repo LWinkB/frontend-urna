@@ -3,6 +3,7 @@ import {HttpClient} from "@angular/common/http";
 import {environment} from "../../environments/environment";
 import {CandidatosModel} from "../Models/candidatos.model";
 import {Observable} from "rxjs";
+import {DatabaseService} from "../core/database.service";
 
 @Injectable({
   providedIn: 'root'
@@ -12,56 +13,55 @@ export class UrnaApiService {
 
 qtdVotos:any
 
-  constructor(private http: HttpClient) {
+  constructor(private databaseService: DatabaseService) {
 
   }
 
   //GET CANDIDATES
 
-  public getPresidentInformations(numero: any): Observable<CandidatosModel> {
-    return this.http.get<any>(`${environment.api_url}/presidente/` + numero)
+   getPresidentData(number): Observable<any>{
+     return this.databaseService.get('/presidente/' + number, [])
+   }
+
+  getSenatorData(number): Observable<any>{
+  return this.databaseService.get('/senador/' + number, [])
   }
 
-  public getSenatorInformations(numero: any): Observable<CandidatosModel> {
-    return this.http.get<any>(`${environment.api_url}/senador/` + numero)
+  getGovernorData(number):Observable<any>{
+  return this.databaseService.get('/governador/' + number, [])
   }
 
-  public getGovernorInformations(numero: any): Observable<CandidatosModel> {
-    return this.http.get<any>(`${environment.api_url}/governador/` + numero)
+  getStateDeputyData(number):Observable<any>{
+  return this.databaseService.get('/deputado-estadual/' + number, [])
   }
 
-  public getStateDeputyInformation(numero: any): Observable<CandidatosModel> {
-    return this.http.get<any>(`${environment.api_url}/deputado-estadual/` + numero)
+  getCongressmanData(number):Observable<any>{
+  return this.databaseService.get('/deputado-federal/' + number, [])
   }
 
-  public getCongressmanInformation(numero: any): Observable<CandidatosModel> {
-    return this.http.get<any>(`${environment.api_url}/deputado-federal/` + numero)
-  }
 
 ///UPDATE VOTES OF CANDIDATES
 
-  public insertPresidentVotes($id): Observable<any>{
-    return this.http.put<any>(`${environment.api_url}/presidente/${$id}`, this.qtdVotos)
+
+  updateVotesOfPresident(id):Observable<any>{
+  return this.databaseService.put('/presidente/' + id, this.qtdVotos)
   }
 
-  public insertCongressmanVotes($id): Observable<any>{
-    return this.http.put<any>(`${environment.api_url}/deputado-federal/${$id}`, this.qtdVotos)
-
+  updateVotesOfCongressman(id):Observable<any>{
+  return this.databaseService.put('/deputado-federal/' + id, this.qtdVotos)
   }
 
-  public insertStateDeputyVotes($id): Observable<any>{
-    return this.http.put<any>(`${environment.api_url}/deputado-estadual/${$id}`, this.qtdVotos)
-
+  updateVotesOfStateDeputy(id): Observable<any>{
+  return this.databaseService.put('/deputado-estadual/' + id, this.qtdVotos)
   }
 
-  public insertSenatorVotes($id): Observable<any>{
-    return this.http.put<any>(`${environment.api_url}/senador/${$id}`, this.qtdVotos)
+ updateVotesOfSenator(id): Observable<any> {
+   return this.databaseService.put('/senador' + id, this.qtdVotos)
+ }
 
-  }
-  public insertGovernorVotes($id): Observable<any>{
-    return this.http.put<any>(`${environment.api_url}/governador/${$id}`, this.qtdVotos)
-
-  }
+ updateVotesOfGovernor(id): Observable<any>{
+  return  this.databaseService.put('/governador/' + id, this.qtdVotos)
+ }
 
 
 }
