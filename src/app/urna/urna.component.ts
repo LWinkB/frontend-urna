@@ -1,7 +1,6 @@
 import {Component, ElementRef, OnInit} from '@angular/core';
 import {AuthService} from "../services/auth.service";
 import {UrnaApiService} from "../services/urna-api.service";
-import {ActivatedRoute, Router} from "@angular/router";
 import {NavigateService} from "../shared/navigate.service";
 
 @Component({
@@ -47,13 +46,14 @@ export class UrnaComponent implements OnInit {
   getPresident(): void {
     this.urnaApiService.getPresidentInformations(this.getNumberOfCandidate).subscribe(
       data => {
-        this.candidates = data
+        this.candidates = data;
         if (this.candidates['length'] == 0) {
-          this.showNull = true
-          this.showInformations = false
+          this.showNull = true;
+          this.candidates = {id:31};
+          this.showInformations = false;
         } else {
-          this.showInformations = true
-          this.showNull = false
+          this.showInformations = true;
+          this.showNull = false;
         }
       })
   }
@@ -63,6 +63,7 @@ export class UrnaComponent implements OnInit {
       this.candidates = data
       if (this.candidates['length'] == 0) {
         this.showNull = true
+        this.candidates = {id:11};
         this.showInformations = false
       } else {
         this.showInformations = true
@@ -76,6 +77,7 @@ export class UrnaComponent implements OnInit {
       this.candidates = data
       if (this.candidates['length'] == 0) {
         this.showNull = true
+        this.candidates = {id:10};
         this.showInformations = false
       } else {
         this.showInformations = true
@@ -89,6 +91,7 @@ export class UrnaComponent implements OnInit {
       this.candidates = data
       if (this.candidates['length'] == 0) {
         this.showNull = true
+        this.candidates = {id:11};
         this.showInformations = false
       } else {
         this.showInformations = true
@@ -102,6 +105,7 @@ export class UrnaComponent implements OnInit {
       this.candidates = data
       if (this.candidates['length'] == 0) {
         this.showNull = true
+        this.candidates = {id:28}
         this.showInformations = false
       } else {
         this.showInformations = true
@@ -111,9 +115,9 @@ export class UrnaComponent implements OnInit {
   }
 
   updatePresidentVotes() {
-    console.log(this.candidates)
-    this.urnaApiService.insertPresidentVotes(this.candidates['id']).subscribe(data =>{
+    this.urnaApiService.insertPresidentVotes(this.candidates['id']).subscribe(data => {
       this.getVotes = data
+
     })
 
   }
@@ -122,14 +126,12 @@ export class UrnaComponent implements OnInit {
     this.urnaApiService.insertCongressmanVotes(this.candidates['id']).subscribe(data => {
       this.getVotes = data
     })
-
   }
 
   updateStateDeputyVotes() {
     this.urnaApiService.insertStateDeputyVotes(this.candidates['id']).subscribe(data => {
       this.getVotes = data
     })
-
   }
 
 
@@ -217,9 +219,31 @@ export class UrnaComponent implements OnInit {
   }
 
   confirm() {
-
     let confirmVotes: boolean = false
     if (this.whiteVote === true) {
+      switch (this.currentStage) {
+        case 0:
+          this.candidates = {id:29}
+          this.updateCongressmanVotes()
+          break;
+        case 1:
+          this.candidates = {id:12}
+          this.updateStateDeputyVotes()
+          break;
+        case 2:
+          this.candidates = {id:12}
+          this.updateSenatorVotes()
+          break;
+        case 3:
+          this.candidates = {id:11}
+          this.updateGovernorVotes()
+          break;
+        case 4:
+          this.candidates = {id:32}
+          this.updatePresidentVotes()
+          break;
+      }
+
       confirmVotes = true
 
     } else if (this.numberPosition == (this.qtdNumbers[this.currentStage])) {
@@ -232,10 +256,10 @@ export class UrnaComponent implements OnInit {
           this.updateStateDeputyVotes()
           break;
         case 2:
-         this.updateSenatorVotes()
+          this.updateSenatorVotes()
           break;
         case 3:
-        this.updateGovernorVotes()
+          this.updateGovernorVotes()
           break;
         case 4:
           this.updatePresidentVotes()

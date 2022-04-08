@@ -1,43 +1,48 @@
-<html>
-<body>
-<div class="container">
-  <div class="logout">
-    <button (click)="authService.logout()" id="logout">Sair</button>
-  </div>
- <div class="title"><h1>CADASTRO DE CANDIDATO</h1></div>
-  <form [formGroup]="candidateForm">
-    <div class="col-md-6 col-sm-12">
-      <div class="candidateRegister">
-        <span>Selecione o cargo que o candidato irá disputar!</span>
-        <select (change)="setMask()" [formControlName]="'cargo'" name="positions" id="positions">
-          <option value="Presidente">Presidente</option>
-          <option value="Senador">Senador</option>
-          <option value="DeputadoFederal">Deputado Federal</option>
-          <option value="DeputadoEstadual">Deputado Estadual</option>
-          <option value="Governador">Governador</option>
-        </select>
-      </div>
-      <div class="form-group">
-        <label class="labelOne">Nome:</label>
-        <input  [formControlName]="'nome'" type="text" class="name" placeholder="nome do candidato" required>
-      </div>
-      <div class="form-group">
-        <label class="labelTwo">Número:</label>
-        <input [formControlName]="'numero'"   [mask]="maskNumber" type="text" class="number"  placeholder="numero do candidato" required>
-      </div>
-      <div class="form-group">
-        <label class="labelThree">Partido:</label>
-        <input [formControlName]="'partido'" type="text" class="party" placeholder="partido do candidato" required>
-      </div>
-      <div class="form-group">
-        <label class="LabelFour" id="labelImage">imagem do candidato:</label>
-        <input type="file" (change)="onFileSelected($event)" class="image" required>
-      </div>
+<header>
+  <nav class="navMenu">
+    <span (click)="navigateService.navigateToParcialVotes()">Resultados parciais</span>
+    <span (click)="navigateService.navigateToVotation()">Votação</span>
+    <span (click)="authService.logout()">Sair</span>
+  </nav>
+</header>
+<div class="allScreen">
+  <div class="container">
+    <div class="title"><h1>CADASTRO DE CANDIDATO</h1></div>
+    <form [formGroup]="candidateForm">
+      <div class="col-md-6 col-sm-12">
+        <div class="candidateRegister">
+          <span>Selecione o cargo que o candidato irá disputar!</span>
+          <select (change)="setMask()" [formControlName]="'cargo'" name="positions" id="positions">
+            <option value="Presidente">Presidente</option>
+            <option value="Senador">Senador</option>
+            <option value="DeputadoFederal">Deputado Federal</option>
+            <option value="DeputadoEstadual">Deputado Estadual</option>
+            <option value="Governador">Governador</option>
+          </select>
+        </div>
+        <div class="form-group">
+          <label class="labelOne">Nome:</label>
+          <input [formControlName]="'nome'" type="text" class="name" placeholder="nome do candidato" required>
+        </div>
+        <div class="form-group">
+          <label class="labelTwo">Número:</label>
+          <input [formControlName]="'numero'" [mask]="maskNumber" type="text" class="number"
+                 placeholder="numero do candidato" required>
+        </div>
+        <div class="form-group">
+          <label class="labelThree">Partido:</label>
+          <input [formControlName]="'partido'" type="text" class="party" placeholder="partido do candidato" required>
+        </div>
+        <div class="form-group">
+          <label class="LabelFour" id="labelImage">imagem do candidato:</label>
+          <input type="file" (change)="onFileSelected($event)" class="image" required>
+        </div>
 
-      <button (click)="registerCandidate()" type="submit" class="btn btn-submit">Cadastrar</button>
-      <button (click)="navigateService.navigateToVotation()" class="votationStage"  id="votationStage">Ir para a votação</button>
-    </div>
-  </form>
+        <button (click)="registerCandidate()" type="submit" class="btn btn-submit">Cadastrar</button>
+        <button (click)="navigateService.navigateToVotation()" class="votationStage" id="votationStage">Ir para a
+          votação
+        </button>
+      </div>
+    </form>
+  </div>
 </div>
-</body>
-</html>
