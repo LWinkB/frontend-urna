@@ -12,7 +12,7 @@
   color: black;
 }
 
-.navMenu{
+.navMenu {
   position: absolute;
   display: flex;
   justify-content: right;
@@ -21,7 +21,7 @@
   height: 50px;
 }
 
-.navMenu span  {
+.navMenu span {
   display: inline-block;
   margin: 20px;
   color: #ffffff;
@@ -38,7 +38,7 @@
   color: #fddb3a;
 }
 
-.allScreen{
+.allScreen {
   background-image: url("~src/assets/imagens/verde.png");
   height: 100vh;
 
@@ -66,16 +66,10 @@ select {
 }
 
 .container {
-  padding-top: 120px;
+  padding-top: 100px;
   width: 800px;
   margin: auto;
 }
-
-
-.form-group {
-  height: 150px;
-}
-
 
 label {
   margin-left: 25px;
@@ -90,29 +84,28 @@ input {
   width: 100%;
   border-radius: 6px;
   font-size: 16px;
-  padding: 10px;
-  margin-top: 5px;
+  padding: 20px;
+  margin-top: 15px;
 }
-
 
 .btn-submit {
   width: 100%;
-  padding: 10px;
   background-color: #16b1e8;
+  padding-top: 10px;
   font-size: 25px;
   color: white;
   cursor: pointer;
   border-radius: 5px;
 }
 
-.btn-submit:hover{
+.btn-submit:hover {
   background-color: #0e95e3;
 }
 
 #votationStage {
   width: 100%;
-  padding: 10px;
   background-color: #0ac15d;
+  padding-top: 10px;
   font-size: 25px;
   color: white;
   cursor: pointer;
@@ -120,7 +113,7 @@ input {
   margin-top: 8px;
 }
 
-#votationStage:hover{
+#votationStage:hover {
   background-color: #48C079;
 }
 
@@ -129,15 +122,6 @@ input {
   width: 500px;
 }
 
-#logout{
-  width: 75px;
-  position: relative;
-  left: 1050px;
-  color: white;
-  top: 10px;
-  background: #f64747;
-  cursor: pointer;
-}
 
 
 

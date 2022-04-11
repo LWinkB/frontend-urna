@@ -37,11 +37,11 @@
           <label class="LabelFour" id="labelImage">imagem do candidato:</label>
           <input type="file" (change)="onFileSelected($event)" class="image" required>
         </div>
+          <button (click)="registerCandidate()" type="submit" class="btn btn-submit">Cadastrar</button>
+          <button (click)="navigateService.navigateToVotation()" class="votationStage" id="votationStage">Ir para a
+            votação
+          </button>
 
-        <button (click)="registerCandidate()" type="submit" class="btn btn-submit">Cadastrar</button>
-        <button (click)="navigateService.navigateToVotation()" class="votationStage" id="votationStage">Ir para a
-          votação
-        </button>
       </div>
     </form>
   </div>

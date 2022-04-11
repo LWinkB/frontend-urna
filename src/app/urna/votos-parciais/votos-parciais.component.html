@@ -1,7 +1,7 @@
 <section class="container">
   <nav class="navMenu">
-    <span (click)="profile.redirectToVotation()">Votar</span>
-    <span (click)="profile.redirectToRegisterCandidate()">Cadastrar Candidato</span>
+    <span (click)="navigateService.navigateToVotation()">Votar</span>
+    <span (click)="navigateService.navigateToRegisterCandidate()">Cadastrar Candidato</span>
     <span (click)="auth.logout()">Sair</span>
 
   </nav>

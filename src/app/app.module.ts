@@ -11,14 +11,13 @@ import {UrnaComponent} from './urna/urna.component';
 import {CadastroComponent} from './cadastro/cadastro.component';
 import {VotosParciaisComponent} from './urna/votos-parciais/votos-parciais.component'
 import {CadastrarCandidatoComponent} from './cadastrar-candidato/cadastrar-candidato.component';
-import {ProfileComponent} from "./profile/profile/profile.component";
+import {MenuComponent} from "./profile/profile/menu.component";
 import {LoginComponent} from "./login/login.component";
 
 import {AuthenticatedGuard} from "./guards/authenticated.guard";
 import {NavigateService} from "./shared/navigate.service";
 import {RouterModule} from "@angular/router";
 import {AuthModule} from "./login/auth.module";
-import {TokenInterceptors} from "./interceptors/token.interceptors";
 
 
 @NgModule({
@@ -47,12 +46,8 @@ import {TokenInterceptors} from "./interceptors/token.interceptors";
   providers: [
     AuthenticatedGuard,
     LoginComponent,
-    ProfileComponent,
+    MenuComponent,
     NavigateService,
-
-
-    {provide: HTTP_INTERCEPTORS, useClass: TokenInterceptors, multi: true},
-
   ],
   bootstrap: [AppComponent]
 })

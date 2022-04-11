@@ -21,7 +21,7 @@ export class UrnaComponent implements OnInit {
   finish: boolean = false
 
   public position: string[] = ['DEPUTADO FEDERAL', 'DEPUTADO ESTADUAL', 'SENADOR', 'GOVERNADOR', 'PRESIDENTE'];
-  public qtdNumbers: number[] = [5, 4, 3, 2, 2];
+  public numberByOccupation: number[] = [5, 4, 3, 2, 2];
 
   public numberPosition: number = 0;
   public currentStage: number = 0;
@@ -47,7 +47,6 @@ export class UrnaComponent implements OnInit {
     this.urnaApiService.getPresidentData(this.getNumberOfCandidate).subscribe(
       data => {
         this.candidates = data;
-        console.log(this.candidates)
         if (this.candidates['length'] == 0) {
           this.showNull = true;
           this.candidates = {id:31};
@@ -154,14 +153,14 @@ export class UrnaComponent implements OnInit {
 
     this.actualSquare = this.dom.querySelectorAll('.square');
 
-    if (this.numberPosition <= (this.qtdNumbers[this.currentStage] - 1)) {
+    if (this.numberPosition <= (this.numberByOccupation[this.currentStage] - 1)) {
       this.actualSquare[this.numberPosition].innerHTML = keyboards;
 
       this.actualSquare[this.numberPosition].classList.remove('focus');
 
       this.getNumberOfCandidate = this.getNumberOfCandidate + keyboards.toString()
 
-      if (this.numberPosition < this.qtdNumbers[this.currentStage] - 1) {
+      if (this.numberPosition < this.numberByOccupation[this.currentStage] - 1) {
         this.actualSquare[++this.numberPosition].classList.add('focus');
 
       } else {
@@ -169,7 +168,7 @@ export class UrnaComponent implements OnInit {
       }
     }
 
-    if (this.numberPosition == (this.qtdNumbers[this.currentStage])) {
+    if (this.numberPosition == (this.numberByOccupation[this.currentStage])) {
       switch (this.currentStage) {
         case 0:
           this.getCongressman()
@@ -198,7 +197,7 @@ export class UrnaComponent implements OnInit {
     this.getNumberOfCandidate = '';
     this.numberPosition = 0
     this.candidates = [];
-    for (let square = 0; square < this.qtdNumbers[this.currentStage]; square++) {
+    for (let square = 0; square < this.numberByOccupation[this.currentStage]; square++) {
       this.actualSquare[square].innerHTML = '';
     }
 
@@ -246,7 +245,7 @@ export class UrnaComponent implements OnInit {
 
       confirmVotes = true
 
-    } else if (this.numberPosition == (this.qtdNumbers[this.currentStage])) {
+    } else if (this.numberPosition == (this.numberByOccupation[this.currentStage])) {
       confirmVotes = true
       switch (this.currentStage) {
         case 0:

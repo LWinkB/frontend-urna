@@ -19,9 +19,9 @@
         <div *ngIf="!finish" class="numberBox">
           <div class="square focus"></div>
           <div class="square"></div>
-          <div *ngIf="qtdNumbers[currentStage]> 2" class="square"></div>
-          <div *ngIf="qtdNumbers[currentStage]> 3" class="square"></div>
-          <div *ngIf="qtdNumbers[currentStage]> 4" class="square"></div>
+          <div *ngIf="numberByOccupation[currentStage]> 2" class="square"></div>
+          <div *ngIf="numberByOccupation[currentStage]> 3" class="square"></div>
+          <div *ngIf="numberByOccupation[currentStage]> 4" class="square"></div>
         </div>
 
         <div *ngIf="showInformations" class="informations">

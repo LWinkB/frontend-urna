@@ -21,8 +21,8 @@ export class NavigateService {
     this.route.navigate(['/votação'])
   }
 
-  navigateToProfile(){
-    this.route.navigate(['/profile'])
+  navigateToMenu(){
+    this.route.navigate(['/menu'])
   }
 
   navigateToRegisterCandidate(){
@@ -30,7 +30,11 @@ export class NavigateService {
 
   }
 
-
+  navigateToRegisterUser(){
+  this.route.navigate(['/cadastro'])}
 }
+
+
+
 
 

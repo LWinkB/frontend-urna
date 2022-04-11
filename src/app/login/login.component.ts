@@ -1,7 +1,6 @@
 import {Component, OnInit} from '@angular/core';
-import {HttpClient, HttpErrorResponse} from "@angular/common/http";
+import {HttpErrorResponse} from "@angular/common/http";
 import {FormBuilder, FormGroup, Validators} from "@angular/forms";
-import {Router} from "@angular/router";
 import {AuthService} from "../services/auth.service";
 import {NavigateService} from "../shared/navigate.service";
 
@@ -17,9 +16,7 @@ export class LoginComponent implements OnInit {
   loginForm!: FormGroup;
   errorCredentials = false
 
-  constructor(private router: Router,
-              private http: HttpClient,
-              public formBuilder: FormBuilder,
+  constructor(public formBuilder: FormBuilder,
               private loginService: AuthService,
               public navigateService: NavigateService) {
   }
@@ -36,7 +33,7 @@ export class LoginComponent implements OnInit {
     // chamando a função la do service, pegando as informações do formulario e retornando a rota da urna se as credenciais forem corretas.
     this.loginService.login(this.loginForm.value).subscribe(
       (res) => {
-        this.navigateService.navigateToProfile()
+        this.navigateService.navigateToMenu()
       },
       (errorResponse: HttpErrorResponse) => {
 
@@ -48,8 +45,7 @@ export class LoginComponent implements OnInit {
   }
 
   userRegister() {
-    this.router.navigate(['/cadastro'])
-
+    this.navigateService.navigateToRegisterUser()
   }
 
 

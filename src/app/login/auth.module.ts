@@ -6,7 +6,7 @@ import {ReactiveFormsModule} from "@angular/forms";
 import {AuthService} from "../services/auth.service";
 import {HttpClientModule} from "@angular/common/http";
 import {LoginComponent} from "./login.component";
-import {ProfileComponent} from "../profile/profile/profile.component";
+import {MenuComponent} from "../profile/profile/menu.component";
 import {DatabaseService} from "../core/database.service";
 
 
@@ -18,7 +18,7 @@ import {DatabaseService} from "../core/database.service";
   ],
   declarations: [
     LoginComponent,
-    ProfileComponent
+    MenuComponent
   ],
   exports: [
     LoginComponent

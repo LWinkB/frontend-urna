@@ -22,7 +22,7 @@ export class AuthService {
   login(credentials: { email: string, password: string }): Observable<any> {
     return this.databaseService.post('/login',credentials).pipe(tap(res=>{
       localStorage.setItem('token', res.token); //pegando o token e colocando no localStorage
-      localStorage.setItem('user', res.user); //pegando os dados do usuário e colocando no localStorage (OBJETO)
+      localStorage.setItem('user', res.user.email); //pegando os dados do usuário e colocando no localStorage (OBJETO)
       console.log(res.user)
     }))
   }
