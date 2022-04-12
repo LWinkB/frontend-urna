@@ -15,6 +15,7 @@ export class LoginComponent implements OnInit {
 
   loginForm!: FormGroup;
   errorCredentials = false
+  success = false
 
   constructor(public formBuilder: FormBuilder,
               private loginService: AuthService,
@@ -36,9 +37,9 @@ export class LoginComponent implements OnInit {
         this.navigateService.navigateToMenu()
       },
       (errorResponse: HttpErrorResponse) => {
-
         if (errorResponse.status === 401) {
           this.errorCredentials = true
+
         }
       }
     )

@@ -11,6 +11,12 @@
         </div>
         <input (click)="userLogin()" type="submit" value="Login" class="btn solid"/>
       </form>
+      <div *ngIf="errorCredentials" class="alert alert danger" role="alert">
+        Ops, algo não está certo! Verifique se seu E-mail e senha estão corretos!
+      </div>
+
+
+
     </div>
   </div>
   <div class="panels-container">

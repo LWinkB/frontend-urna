@@ -267,13 +267,7 @@ export class UrnaComponent implements OnInit {
 
     }
     if (confirmVotes == true) {
-      let audio = new Audio();
-      audio.src = "../assets/audio/assets_audios_ConfirmarVoto.old.wav";
-      audio.load();
-      audio.play();
       this.currentStage++
-
-
     }
     if (this.currentStage < 5) {
       this.updateDisplay()
@@ -282,6 +276,10 @@ export class UrnaComponent implements OnInit {
       this.finish = true
       this.showNull = false;
       this.showInformations = false
+      let audio = new Audio();
+      audio.src = "../assets/audio/assets_audios_ConfirmarVoto.old.wav";
+      audio.load();
+      audio.play();
 
     }
   }

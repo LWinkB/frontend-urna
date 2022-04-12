@@ -7,7 +7,6 @@ import {environment} from "../../environments/environment";
 
 export class DatabaseService {
 
-  // databaseUrl = 'localhost:8000/api';
   databaseUrl = environment.api_url;
 
   constructor(private httpClient: HttpClient) {

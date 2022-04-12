@@ -14,6 +14,8 @@ import {AuthService} from "../services/auth.service";
 })
 export class CadastrarCandidatoComponent implements OnInit {
 
+  errorCredentials = false
+  success = false
 
   public candidateForm: FormGroup;
 
@@ -73,10 +75,9 @@ export class CadastrarCandidatoComponent implements OnInit {
       }
     })
     if (!isValid) {
-      alert('preencha os campos obrigatórios');
+      alert('Preencha todos os campos corretamente!')
       return false
     }
-    console.log(this.selectedFile)
     if (this.selectedFile == null) {
       alert('Insira a imagem');
       isValid = false;
@@ -93,7 +94,7 @@ export class CadastrarCandidatoComponent implements OnInit {
 
     let position = this.candidateForm.controls['cargo'].value
     let formData = new FormData();
-    // formData.append('candidateForm', JSON.stringify(this.candidateForm.value));
+
     formData.append('imgCandidato', this.selectedFile);
     formData.append('numero', this.candidateForm.get('numero').value);
     formData.append('nome', this.candidateForm.get('nome').value);

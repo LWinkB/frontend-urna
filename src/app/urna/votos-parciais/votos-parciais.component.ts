@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import {Component, OnInit} from '@angular/core';
 import {Observable} from "rxjs";
 import {AuthService} from "../../services/auth.service";
 import {DatabaseService} from "../../core/database.service";
@@ -12,11 +12,12 @@ import {NavigateService} from "../../shared/navigate.service";
 export class VotosParciaisComponent implements OnInit {
 
   constructor(public navigateService: NavigateService,
-              public auth:AuthService,
+              public auth: AuthService,
               private databaseService: DatabaseService
-  ) { }
+  ) {
+  }
 
-  candidatesPresident : any
+  candidatesPresident: any
   candidatesCongressman: any
   candidatesSenator: any
   candidatesDeputy: any
@@ -32,29 +33,28 @@ export class VotosParciaisComponent implements OnInit {
   }
 
 
-
   public getPresidentInformations(): Observable<any> {
-   return this.databaseService.get('/presidente/', [])
+    return this.databaseService.get('/presidente/', [])
 
-    }
+  }
 
   public getSenatorInformations(): Observable<any> {
     return this.databaseService.get('/senador/', [])
 
-    }
+  }
 
   public getGovernorInformations(): Observable<any> {
     return this.databaseService.get('/governador/', [])
-    }
+  }
 
   public getStateDeputyInformation(): Observable<any> {
-    return  this.databaseService.get('/deputado-estadual/', [])
-    }
+    return this.databaseService.get('/deputado-estadual/', [])
+  }
 
   public getCongressmanInformation(): Observable<any> {
     return this.databaseService.get('/deputado-federal/', [])
 
-    }
+  }
 
 
   getPresidents(): void {
@@ -67,7 +67,6 @@ export class VotosParciaisComponent implements OnInit {
   getSenators() {
     this.getSenatorInformations().subscribe(data => {
       this.candidatesSenator = data
-      console.log(data)
 
     })
   }
@@ -91,5 +90,5 @@ export class VotosParciaisComponent implements OnInit {
 
     })
   }
-  }
+}
 

@@ -1,7 +1,7 @@
 import {NgModule} from '@angular/core';
 import {BrowserModule} from '@angular/platform-browser';
 import {NgxMaskModule,} from 'ngx-mask';
-import {HTTP_INTERCEPTORS, HttpClientModule} from "@angular/common/http";
+import {HttpClientModule} from "@angular/common/http";
 import {ReactiveFormsModule} from "@angular/forms";
 
 
@@ -14,10 +14,13 @@ import {CadastrarCandidatoComponent} from './cadastrar-candidato/cadastrar-candi
 import {MenuComponent} from "./profile/profile/menu.component";
 import {LoginComponent} from "./login/login.component";
 
+
 import {AuthenticatedGuard} from "./guards/authenticated.guard";
 import {NavigateService} from "./shared/navigate.service";
 import {RouterModule} from "@angular/router";
 import {AuthModule} from "./login/auth.module";
+
+
 
 
 @NgModule({
@@ -48,6 +51,7 @@ import {AuthModule} from "./login/auth.module";
     LoginComponent,
     MenuComponent,
     NavigateService,
+
   ],
   bootstrap: [AppComponent]
 })
