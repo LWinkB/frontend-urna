@@ -3,6 +3,7 @@ import {Observable} from "rxjs";
 import {AuthService} from "../../services/auth.service";
 import {DatabaseService} from "../../core/database.service";
 import {NavigateService} from "../../shared/navigate.service";
+import {CandidatosModel} from "../../Models/candidatos.model";
 
 @Component({
   selector: 'app-votos-parciais',
@@ -17,6 +18,7 @@ export class VotosParciaisComponent implements OnInit {
   ) {
   }
 
+  candidate = new CandidatosModel()
   candidatesPresident: any
   candidatesCongressman: any
   candidatesSenator: any
@@ -90,5 +92,40 @@ export class VotosParciaisComponent implements OnInit {
 
     })
   }
+
+  deleteVotesOfPresident(id: any) {
+    this.databaseService.delete('/presidente/' + id, []).subscribe(response => {
+      this.getPresidents()
+
+    })
+  }
+
+  deleteVotesOfSenator(id: any) {
+    this.databaseService.delete('/senador/' + id, []).subscribe(response => {
+      this.getSenators()
+    })
+
+  }
+
+  deleteVotesOfCongressman(id: any) {
+    this.databaseService.delete('/deputado-federal/' + id, []).subscribe(response => {
+      this.getCongressmans()
+    })
+
+  }
+
+  deleteVotesOfDeputy(id: any) {
+    this.databaseService.delete('/deputado-estadual/' + id, []).subscribe(response => {
+      this.getStateDeputys()
+    })
+  }
+
+  deleteVotesOfGovernor(id: any) {
+    this.databaseService.delete('/governador/' + id, []).subscribe(response => {
+      this.getGovernors()
+    })
+
+  }
+
 }
 

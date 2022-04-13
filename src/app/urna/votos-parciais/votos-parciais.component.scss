@@ -1,8 +1,31 @@
 
 .container {
-  display: flex;
-  background-image: url("~src/assets/imagens/cool-background.png");
+  height: 100vh;
+  overflow-y: scroll;
+}
 
+.table{
+  margin-top: 40px;
+  padding-top: 30px;
+}
+
+.qtdVotos {
+  color: #15b853;
+  font-weight: 700;
+}
+
+.blueNames{
+  color: #0568c4;
+  font-weight: 700;
+}
+
+.blackNames{
+  font-weight: 700;
+  color: #000000;
+}
+
+th{
+  color: #726f6f;
 }
 
 .navMenu{
@@ -14,7 +37,7 @@
   height: 50px;
 }
 
-.navMenu span  {
+.navMenu span {
   display: inline-block;
   margin: 20px;
   color: #ffffff;
@@ -32,50 +55,6 @@
 }
 
 
-.card {
-  border: 1px solid black;
-  margin: 100px 20px;
-  height: 100vh;
-  width: 20%;
-  background-color: #e8dada;
-  border-radius: 10px;
+td{
+  text-transform: capitalize;
 }
-
-ul {
-  padding: 10px;
-}
-
-.title{
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  font-size: 20px;
-  font-weight: bold;
-  padding: 15px;
-}
-.candidate{
-  font-weight: 700;
-}
-
-.votes{
-  color: #137241;
-}
-
-.logout{
-  color: #f64747;
-  border: none;
-  cursor: pointer;
-  position: relative;
-  left: 250px;
-  font-size: 30px;
-}
-
-.votation{
-  color: #578ec4;
-  border: none;
-  cursor: pointer;
-  position: relative;
-  font-size: 30px;
-}
-
-

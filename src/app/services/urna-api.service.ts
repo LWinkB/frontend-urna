@@ -1,8 +1,7 @@
 import {Injectable} from '@angular/core';
-import {HttpClient} from "@angular/common/http";
-import {environment} from "../../environments/environment";
-import {CandidatosModel} from "../Models/candidatos.model";
 import {Observable} from "rxjs";
+
+
 import {DatabaseService} from "../core/database.service";
 
 @Injectable({
@@ -13,7 +12,6 @@ export class UrnaApiService {
 
   qtdVotos: any
 
-  candidato: any
 
   constructor(private databaseService: DatabaseService) {
 
@@ -58,6 +56,7 @@ export class UrnaApiService {
   }
 
   updateVotesOfSenator(id): Observable<any> {
+
     return this.databaseService.put('/senador' + id, this.qtdVotos)
   }
 

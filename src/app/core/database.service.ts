@@ -39,9 +39,9 @@ export class DatabaseService {
       })));
   }
 
-  delete(url, params, authenticated: boolean) {
+  delete(url, params, authenticated = true) {
     let header = this.createHeader(authenticated);
-    return this.httpClient.post(this.databaseUrl + url, {headers: header, params: params})
+    return this.httpClient.delete(this.databaseUrl + url, {headers: header, params: params})
       .pipe(tap(resp => {
       }, error => {
       }));
