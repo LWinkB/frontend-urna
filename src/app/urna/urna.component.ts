@@ -49,7 +49,7 @@ export class UrnaComponent implements OnInit {
         this.candidates = data;
         if (this.candidates['length'] == 0) {
           this.showNull = true;
-          this.candidates = {id:31};
+          this.candidates = {id: 31};
           this.showInformations = false;
         } else {
           this.showInformations = true;
@@ -61,16 +61,16 @@ export class UrnaComponent implements OnInit {
   getSenator() {
     this.urnaApiService.getSenatorData(this.getNumberOfCandidate).subscribe(
       data => {
-      this.candidates = data
-      if (this.candidates['length'] == 0) {
-        this.showNull = true
-        this.candidates = {id:11};
-        this.showInformations = false
-      } else {
-        this.showInformations = true
-        this.showNull = false
-      }
-    })
+        this.candidates = data
+        if (this.candidates['length'] == 0) {
+          this.showNull = true
+          this.candidates = {id: 11};
+          this.showInformations = false
+        } else {
+          this.showInformations = true
+          this.showNull = false
+        }
+      })
   }
 
   getGovernor() {
@@ -78,7 +78,7 @@ export class UrnaComponent implements OnInit {
       this.candidates = data
       if (this.candidates['length'] == 0) {
         this.showNull = true
-        this.candidates = {id:10};
+        this.candidates = {id: 10};
         this.showInformations = false
       } else {
         this.showInformations = true
@@ -92,7 +92,7 @@ export class UrnaComponent implements OnInit {
       this.candidates = data
       if (this.candidates['length'] == 0) {
         this.showNull = true
-        this.candidates = {id:11};
+        this.candidates = {id: 11};
         this.showInformations = false
       } else {
         this.showInformations = true
@@ -106,7 +106,7 @@ export class UrnaComponent implements OnInit {
       this.candidates = data
       if (this.candidates['length'] == 0) {
         this.showNull = true
-        this.candidates = {id:28}
+        this.candidates = {id: 28}
         this.showInformations = false
       } else {
         this.showInformations = true
@@ -222,23 +222,23 @@ export class UrnaComponent implements OnInit {
     if (this.whiteVote === true) {
       switch (this.currentStage) {
         case 0:
-          this.candidates = {id:29}
+          this.candidates = {id: 29}
           this.updateCongressmanVotes()
           break;
         case 1:
-          this.candidates = {id:12}
+          this.candidates = {id: 12}
           this.updateStateDeputyVotes()
           break;
         case 2:
-          this.candidates = {id:12}
+          this.candidates = {id: 12}
           this.updateSenatorVotes()
           break;
         case 3:
-          this.candidates = {id:11}
+          this.candidates = {id: 11}
           this.updateGovernorVotes()
           break;
         case 4:
-          this.candidates = {id:32}
+          this.candidates = {id: 32}
           this.updatePresidentVotes()
           break;
       }

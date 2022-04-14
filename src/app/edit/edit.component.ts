@@ -1,21 +1,26 @@
 import {Component, OnInit} from '@angular/core';
 import {FormBuilder, FormGroup, Validators} from "@angular/forms";
-import {HttpClient} from "@angular/common/http";
 import {CadastroCandidatoService} from "../services/cadastro-candidato.service";
 import {NavigateService} from "../shared/navigate.service";
 import {AuthService} from "../services/auth.service";
-
+import {DatabaseService} from "../core/database.service";
+import {CandidatosModel} from "../Models/candidatos.model";
+import {ActivatedRoute} from "@angular/router";
 
 
 @Component({
-  selector: 'app-cadastrar-candidato',
-  templateUrl: './cadastrar-candidato.component.html',
-  styleUrls: ['./cadastrar-candidato.component.scss']
+  selector: 'app-edit',
+  templateUrl: './edit.component.html',
+  styleUrls: ['./edit.component.scss']
 })
-export class CadastrarCandidatoComponent implements OnInit {
+export class EditComponent implements OnInit {
 
   errorCredentials = false
   success = false
+  id: any
+  data: any
+  candidate = new CandidatosModel()
+
 
   public candidateForm: FormGroup;
 
@@ -34,7 +39,9 @@ export class CadastrarCandidatoComponent implements OnInit {
     private formBuilder: FormBuilder,
     private cadastroCandidatoService: CadastroCandidatoService,
     public navigateService: NavigateService,
-    public authService: AuthService
+    public authService: AuthService,
+    private databaseService: DatabaseService,
+    private route: ActivatedRoute,
   ) {
     this.candidateForm = this.formBuilder.group({
       'nome': [null, [Validators.required]],
@@ -42,13 +49,13 @@ export class CadastrarCandidatoComponent implements OnInit {
       'partido': [null, [Validators.required]],
       'cargo': [null, [Validators.nullValidator]]
     })
-
   }
 
   selectedFile: File = null;
 
   ngOnInit(): void {
-
+    this.id = this.route.snapshot.params['id']
+    console.log(this.id)
   }
 
   setMask() {
@@ -84,7 +91,8 @@ export class CadastrarCandidatoComponent implements OnInit {
     return isValid;
   }
 
-  registerCandidate() {
+
+  updateCandidate() {
 
     if (!this.validForm()) {
       return
@@ -98,42 +106,49 @@ export class CadastrarCandidatoComponent implements OnInit {
     formData.append('nome', this.candidateForm.get('nome').value);
     formData.append('partido', this.candidateForm.get('partido').value);
     formData.append('cargo', this.candidateForm.get('cargo').value);
+    formData.append('_method', 'PUT')
 
     if (position == 'Presidente') {
-      this.cadastroCandidatoService.postPresident(formData, (response) => {
-        if (!response.error) {
-          alert('Candidato cadastrado para concorrer à Presidente!')
-        }
-      })
 
+      this.databaseService.post('/atualizar-presidente/' + (this.id), formData).subscribe(response => {
+        this.data = response;
+        this.candidate = this.data;
+       alert('Informações atualizadas com sucesso!!')
+
+      })
     } else if (position == 'Senador') {
-      this.cadastroCandidatoService.postSenator(formData, (response) => {
-        if (!response.error) {
-          alert('Candidado cadastrado para concorrer à Senador!')
-        }
-      })
+        this.databaseService.post('/atualizar-senador/' + (this.id), formData).subscribe(response =>{
+          this.data = response;
+          this.candidate = this.data;
+         alert('Informações atualizadas com sucesso!!')
+        })
+    }
 
-    } else if (position == 'Governador') {
-      this.cadastroCandidatoService.postGovernor(formData, (response) => {
-        if (!response.error) {
-          alert('Candidado cadastrado para concorrer à Governador!')
-        }
+    else if (position == 'Governador') {
+      this.databaseService.post('/atualizar-governador/' + (this.id), formData).subscribe(response =>{
+        this.data = response;
+        this.candidate = this.data;
+       alert('Informações atualizadas com sucesso!!')
       })
+    }
 
-    } else if (position == 'DeputadoEstadual') {
-      this.cadastroCandidatoService.postStateDeputy(formData, (response) => {
-        if (!response.error) {
-          alert('Candidado cadastrado para concorrer à Deputado Estadual!')
-        }
+    else if (position == 'DeputadoFederal') {
+      this.databaseService.post('/atualizar-deputado-federal/' + (this.id), formData).subscribe(response =>{
+        this.data = response;
+        this.candidate = this.data;
+       alert('Informações atualizadas com sucesso!!')
       })
-    } else if (position == 'DeputadoFederal') {
-      this.cadastroCandidatoService.postCongressman(formData, (response) => {
-        if (!response.error) {
-          alert('Candidado cadastrado para concorrer à Deputado Federal!')
-        }
+    }
+
+    else if (position == 'DeputadoEstadual') {
+      this.databaseService.post('/atualizar-deputado-estadual/' + (this.id), formData).subscribe(response =>{
+        this.data = response;
+        this.candidate = this.data;
+       alert('Informações atualizadas com sucesso!!')
       })
     }
   }
 }
+
 
 

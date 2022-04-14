@@ -19,8 +19,7 @@ import {AuthenticatedGuard} from "./guards/authenticated.guard";
 import {NavigateService} from "./shared/navigate.service";
 import {RouterModule} from "@angular/router";
 import {AuthModule} from "./login/auth.module";
-
-
+import {EditComponent} from './edit/edit.component';
 
 
 @NgModule({
@@ -30,6 +29,7 @@ import {AuthModule} from "./login/auth.module";
     CadastroComponent,
     CadastrarCandidatoComponent,
     VotosParciaisComponent,
+    EditComponent,
 
 
   ],

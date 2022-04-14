@@ -26,8 +26,13 @@
       <td class="blueNames">{{ candidate['partido'] }}</td>
       <td class="qtdVotos">{{ candidate['qtdVotos'] }}</td>
       <td>
-        <button class="btn btn-danger btn-sm" (click)="deleteVotesOfPresident(candidate.id)">Deletar</button>
-        <!--      <button class="btn btn-warning btn-sm mx-2" routerLink="editar/{{employee.id}}">Atualizar</button>-->
+        <button *ngIf="candidate['nome'] !== 'VOTO BRANCO' && candidate['nome'] !== 'VOTO NULO'"
+                class="btn btn-danger btn-sm" (click)="deleteVotesOfPresident(candidate.id)">Deletar
+        </button>
+
+        <button *ngIf="candidate['nome'] !== 'VOTO BRANCO' && candidate['nome'] !== 'VOTO NULO'"
+                class="btn btn-warning btn-sm mx-2" routerLink="/editar/{{candidate.id}}">Atualizar
+        </button>
       </td>
     </tr>
     <br><br>
@@ -37,8 +42,12 @@
       <td class="blackNames">{{ candidate['partido'] }}</td>
       <td class="qtdVotos">{{ candidate['qtdVotos'] }}</td>
       <td>
-        <button class="btn btn-danger btn-sm" (click)="deleteVotesOfCongressman(candidate.id)">Deletar</button>
-        <!--            <button class="btn btn-warning btn-sm mx-2" routerLink="editar/{{employee.id}}">Atualizar</button>-->
+        <button *ngIf="candidate['nome'] !== 'VOTO BRANCO' && candidate['nome'] !== 'VOTO NULO'"
+                class="btn btn-danger btn-sm" (click)="deleteVotesOfCongressman(candidate.id)">Deletar
+        </button>
+        <button *ngIf="candidate['nome'] !== 'VOTO BRANCO' && candidate['nome'] !== 'VOTO NULO'"
+                class="btn btn-warning btn-sm mx-2" routerLink="/editar/{{candidate.id}}">Atualizar
+        </button>
       </td>
     </tr>
 
@@ -50,8 +59,12 @@
       <td class="blueNames">{{ candidate['partido'] }}</td>
       <td class="qtdVotos">{{ candidate['qtdVotos'] }}</td>
       <td>
-        <button class="btn btn-danger btn-sm" (click)="deleteVotesOfDeputy(candidate.id)">Deletar</button>
-        <!--      <button class="btn btn-warning btn-sm mx-2" routerLink="editar/{{employee.id}}">Atualizar</button>-->
+        <button *ngIf="candidate['nome'] !== 'VOTO BRANCO' && candidate['nome'] !== 'VOTO NULO'"
+                class="btn btn-danger btn-sm" (click)="deleteVotesOfDeputy(candidate.id)">Deletar
+        </button>
+        <button *ngIf="candidate['nome'] !== 'VOTO BRANCO' && candidate['nome'] !== 'VOTO NULO'"
+                class="btn btn-warning btn-sm mx-2" routerLink="/editar/{{candidate.id}}">Atualizar
+        </button>
       </td>
     </tr>
 
@@ -62,8 +75,12 @@
       <td class="blackNames">{{ candidate['partido'] }}</td>
       <td class="qtdVotos">{{ candidate['qtdVotos'] }}</td>
       <td>
-        <button class="btn btn-danger btn-sm" (click)="deleteVotesOfGovernor(candidate.id)">Deletar</button>
-        <!--      <button class="btn btn-warning btn-sm mx-2" routerLink="editar/{{employee.id}}">Atualizar</button>-->
+        <button *ngIf="candidate['nome'] !== 'VOTO BRANCO' && candidate['nome'] !== 'VOTO NULO'"
+                class="btn btn-danger btn-sm" (click)="deleteVotesOfGovernor(candidate.id)">Deletar
+        </button>
+        <button *ngIf="candidate['nome'] !== 'VOTO BRANCO' && candidate['nome'] !== 'VOTO NULO'"
+                class="btn btn-warning btn-sm mx-2" routerLink="/editar/{{candidate.id}}">Atualizar
+        </button>
       </td>
     </tr>
 
@@ -74,8 +91,12 @@
       <td class="blueNames">{{ candidate['partido'] }}</td>
       <td class="qtdVotos">{{ candidate['qtdVotos'] }}</td>
       <td>
-        <button *ngIf="candidate.id != 40" class="btn btn-danger btn-sm" (click)="deleteVotesOfSenator(candidate.id)">Deletar</button>
-        <!--      <button class="btn btn-warning btn-sm mx-2" routerLink="editar/{{employee.id}}">Atualizar</button>-->
+        <button *ngIf="candidate['nome'] !== 'VOTO BRANCO' && candidate['nome'] !== 'VOTO NULO'"
+                class="btn btn-danger btn-sm" (click)="deleteVotesOfSenator(candidate.id)">Deletar
+        </button>
+        <button *ngIf="candidate['nome'] !== 'VOTO BRANCO' && candidate['nome'] !== 'VOTO NULO'"
+                class="btn btn-warning btn-sm mx-2" routerLink="/editar/{{candidate.id}}">Atualizar
+        </button>
       </td>
     </tr>
 

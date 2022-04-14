@@ -18,6 +18,7 @@ export class VotosParciaisComponent implements OnInit {
   ) {
   }
 
+  showDelete: boolean = true
   candidate = new CandidatosModel()
   candidatesPresident: any
   candidatesCongressman: any
