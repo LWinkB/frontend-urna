@@ -10,7 +10,7 @@ import {NavigateService} from "../../shared/navigate.service";
 export class MenuComponent implements OnInit {
 
 
-  constructor(private auth: AuthService, private navigateService:NavigateService) { }
+  constructor(public auth: AuthService, private navigateService:NavigateService) { }
 
   ngOnInit(): void {
 

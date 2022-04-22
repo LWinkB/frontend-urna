@@ -22,16 +22,22 @@
 
 }
 
+html{
+  font-size: 62.5%;
+}
+
 
 .headerPage {
-  width: 100vw;
+  width: 90%;
+  max-width: 980px;
   height: 50px;
   display: flex;
   justify-content: center;
   align-items: center;
-  font-size: 25px;
+  font-size: 2.5rem;
   font-family: Roboto, serif;
   font-weight: 1000;
+  margin: auto;
   letter-spacing: 5px;
   background-color: #403A3A;
   color: black;
@@ -41,9 +47,12 @@
   position: absolute;
   display: flex;
   justify-content: right;
+  align-self: center;
+  align-items: center;
   background-color: #081f38;
   width: 100%;
   height: 50px;
+  margin: auto;
 }
 
 .navMenu span  {
@@ -51,7 +60,7 @@
   margin: 20px;
   color: #ffffff;
   text-decoration: none;
-  font-size: 1.2em;
+  font-size: 1.2rem;
   text-transform: uppercase;
   font-weight: 500;
   -webkit-transition: all 0.2s ease-in-out;
@@ -76,6 +85,7 @@
 
 .screen {
   width: 700px;
+  max-width: 100%;
   height: 420px;
   background: linear-gradient(to right, #E8E8E8, #C1C1C1);
   border: 2px solid #555555;
@@ -105,11 +115,12 @@
 }
 
 .numbersKeyboard {
-  width: 90px;
+  width: 5.5rem;
+  max-width: 100%;
   height: 65px;
   background-color: #000;
   color: white;
-  font-size: 25px;
+  font-size: 2.3rem;
   display: flex;
   justify-content: center;
   align-items: center;
@@ -119,7 +130,8 @@
 }
 
 .keyboard-button {
-  width: 70px;
+  width: 4.5rem;
+  max-width: 100%;
   height: 40px;
   background-color: #000;
   color: white;
@@ -317,9 +329,5 @@
   color: #9ac4f1;
 
 }
-
-
-
-
 
 

@@ -2,13 +2,12 @@ import {Injectable} from '@angular/core';
 import {
   ActivatedRouteSnapshot,
   CanActivate,
-  CanActivateChild,
   Router,
   RouterStateSnapshot,
-  UrlTree
 } from "@angular/router";
 import {Observable} from "rxjs";
 import {AuthService} from "../services/auth.service";
+import {NavigateService} from "../shared/navigate.service";
 
 @Injectable({
   providedIn: 'root'
@@ -16,7 +15,7 @@ import {AuthService} from "../services/auth.service";
 export class AuthenticatedGuard implements CanActivate {
 
 
-  constructor(private auth: AuthService, private router: Router) {
+  constructor(private auth: AuthService, private router: Router, navigateService: NavigateService) {
   }
 
 //Metodo de proteção de rotas pego no angular docs
@@ -28,7 +27,8 @@ export class AuthenticatedGuard implements CanActivate {
     this.router.navigate(['/login']); //se não, redireciona para /login
     return false;
 
-
   }
+
+
 
 }

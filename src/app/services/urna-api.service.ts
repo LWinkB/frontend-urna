@@ -56,8 +56,7 @@ export class UrnaApiService {
   }
 
   updateVotesOfSenator(id): Observable<any> {
-
-    return this.databaseService.put('/senador' + id, this.qtdVotos)
+    return this.databaseService.put('/senador/' + id, this.qtdVotos)
   }
 
   updateVotesOfGovernor(id): Observable<any> {

@@ -1,5 +1,4 @@
 import {Injectable} from '@angular/core';
-import {HttpClient} from "@angular/common/http";
 import {Observable, tap} from "rxjs";
 import {UserModel} from "../Models/user.model";
 import {NavigateService} from "../shared/navigate.service";
@@ -26,6 +25,7 @@ export class AuthService {
       console.log(res.user)
     }))
   }
+
 
   logout():void{
     this.databaseService.get('/logout', []).subscribe(res=>{
