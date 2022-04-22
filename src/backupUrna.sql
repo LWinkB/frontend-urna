@@ -1,6 +1,6 @@
 -- MariaDB dump 10.19  Distrib 10.4.22-MariaDB, for Win64 (AMD64)
 --
--- Host: localhost    Database: urna-api
+-- Host: localhost    Database: bd_urna
 -- ------------------------------------------------------
 -- Server version	10.4.22-MariaDB
 
@@ -28,11 +28,11 @@ CREATE TABLE `deputado estadual` (
   `numero` varchar(10) COLLATE utf8mb4_unicode_ci NOT NULL,
   `partido` varchar(60) COLLATE utf8mb4_unicode_ci NOT NULL,
   `imgCandidato` varchar(100) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
-  `qtdVotos` varchar(100) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  `qtdVotos` varchar(100) COLLATE utf8mb4_unicode_ci NOT NULL DEFAULT '0',
   `created_at` timestamp NULL DEFAULT current_timestamp(),
   `updated_at` timestamp NULL DEFAULT current_timestamp(),
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=13 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=15 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -41,7 +41,7 @@ CREATE TABLE `deputado estadual` (
 
 LOCK TABLES `deputado estadual` WRITE;
 /*!40000 ALTER TABLE `deputado estadual` DISABLE KEYS */;
-INSERT INTO `deputado estadual` VALUES (9,'Mudinho','1111','Palestrantes','132445.jpg','4','2022-04-06 16:24:45','2022-04-08 19:44:07'),(10,'carapazinha','7878','molieres','132515.jpg',NULL,'2022-04-06 16:25:15','2022-04-06 16:25:15'),(11,'VOTO NULO','','NULO',NULL,NULL,'2022-04-08 16:54:02','2022-04-08 16:54:02'),(12,'VOTO BRANCO','','BRANCO',NULL,'10','2022-04-08 17:50:10','2022-04-11 13:30:15');
+INSERT INTO `deputado estadual` VALUES (11,'VOTO NULO','','NULO',NULL,'1','2022-04-08 16:54:02','2022-04-14 11:45:01'),(12,'VOTO BRANCO','','BRANCO',NULL,'15','2022-04-08 17:50:10','2022-04-15 03:27:13'),(14,'Junior the Teacher','9000','Não','152747.jpg','2','2022-04-14 18:27:47','2022-04-15 03:26:33');
 /*!40000 ALTER TABLE `deputado estadual` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -58,11 +58,11 @@ CREATE TABLE `deputado federal` (
   `numero` varchar(10) COLLATE utf8mb4_unicode_ci NOT NULL,
   `partido` varchar(60) COLLATE utf8mb4_unicode_ci NOT NULL,
   `imgCandidato` varchar(100) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
-  `qtdVotos` varchar(100) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  `qtdVotos` varchar(100) COLLATE utf8mb4_unicode_ci NOT NULL DEFAULT '0',
   `created_at` timestamp NULL DEFAULT current_timestamp(),
   `updated_at` timestamp NULL DEFAULT current_timestamp(),
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=30 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=33 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -71,7 +71,7 @@ CREATE TABLE `deputado federal` (
 
 LOCK TABLES `deputado federal` WRITE;
 /*!40000 ALTER TABLE `deputado federal` DISABLE KEYS */;
-INSERT INTO `deputado federal` VALUES (26,'Zepequeno','31444','Sem limites','132309.jpg','2','2022-04-06 16:23:09','2022-04-08 19:38:54'),(27,'Nicolas Cagezinho','11111','Jujubas com anomalia','132356.jpg','7','2022-04-06 16:23:56','2022-04-11 13:28:14'),(28,'VOTO NULO','','NULO',NULL,'3','2022-04-08 16:29:16','2022-04-11 12:34:34'),(29,'VOTO BRANCO','','BRANCO',NULL,'13','2022-04-08 17:25:31','2022-04-11 13:30:14');
+INSERT INTO `deputado federal` VALUES (28,'VOTO NULO','','NULO',NULL,'3','2022-04-08 16:29:16','2022-04-11 12:34:34'),(29,'VOTO BRANCO','','BRANCO',NULL,'18','2022-04-08 17:25:31','2022-04-15 03:27:11'),(32,'Chico Balanceado','11111','Chiquititas','152656.jpg','2','2022-04-14 18:26:56','2022-04-15 03:26:12');
 /*!40000 ALTER TABLE `deputado federal` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -117,11 +117,11 @@ CREATE TABLE `governador` (
   `numero` varchar(10) COLLATE utf8mb4_unicode_ci NOT NULL,
   `partido` varchar(60) COLLATE utf8mb4_unicode_ci NOT NULL,
   `imgCandidato` varchar(100) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
-  `qtdVotos` varchar(100) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  `qtdVotos` varchar(100) COLLATE utf8mb4_unicode_ci NOT NULL DEFAULT '0',
   `created_at` timestamp NULL DEFAULT current_timestamp(),
   `updated_at` timestamp NULL DEFAULT current_timestamp(),
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=12 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=14 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -130,7 +130,7 @@ CREATE TABLE `governador` (
 
 LOCK TABLES `governador` WRITE;
 /*!40000 ALTER TABLE `governador` DISABLE KEYS */;
-INSERT INTO `governador` VALUES (8,'Tutu','20','mandrake','132540.jpg','2','2022-04-06 16:25:40','2022-04-08 17:56:10'),(9,'Martinho','30','Da vila','132617.jpg','1','2022-04-06 16:26:17','2022-04-08 19:44:47'),(10,'VOTO NULO','','NULO',NULL,'1','2022-04-08 16:54:20','2022-04-11 13:28:40'),(11,'VOTO BRANCO','','BRANCO',NULL,'4','2022-04-08 17:53:47','2022-04-11 13:30:17');
+INSERT INTO `governador` VALUES (10,'VOTO NULO','','NULO',NULL,'1','2022-04-08 16:54:20','2022-04-11 13:28:40'),(11,'VOTO BRANCO','','BRANCO',NULL,'11','2022-04-08 17:53:47','2022-04-15 03:27:16'),(13,'Zé pequeno','18','Body builders do paraguai','152906.jpg','1','2022-04-14 18:29:06','2022-04-14 18:30:31');
 /*!40000 ALTER TABLE `governador` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -228,11 +228,11 @@ CREATE TABLE `presidente` (
   `numero` varchar(10) COLLATE utf8mb4_unicode_ci NOT NULL,
   `partido` varchar(60) COLLATE utf8mb4_unicode_ci NOT NULL,
   `imgCandidato` varchar(100) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
-  `qtdVotos` varchar(100) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  `qtdVotos` varchar(100) COLLATE utf8mb4_unicode_ci NOT NULL DEFAULT '0',
   `created_at` timestamp NULL DEFAULT current_timestamp(),
   `updated_at` timestamp NULL DEFAULT current_timestamp(),
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=34 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=60 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -241,7 +241,7 @@ CREATE TABLE `presidente` (
 
 LOCK TABLES `presidente` WRITE;
 /*!40000 ALTER TABLE `presidente` DISABLE KEYS */;
-INSERT INTO `presidente` VALUES (29,'Chefe Mafioso','10','Chefes carinhosos','131754.jpg','1','2022-04-06 16:17:54','2022-04-06 16:29:03'),(30,'Junior the Teacher','11','Programadores Junior','131832.jpg','2','2022-04-06 16:18:32','2022-04-11 13:28:43'),(31,'VOTO NULO','','NULO',NULL,'1','2022-04-08 16:54:36','2022-04-08 19:32:45'),(32,'VOTO BRANCO','','BRANCO',NULL,'2','2022-04-08 17:25:05','2022-04-11 13:30:19');
+INSERT INTO `presidente` VALUES (31,'VOTO NULO','','NULO',NULL,'1','2022-04-08 16:54:36','2022-04-08 19:32:45'),(32,'VOTO BRANCO','','BRANCO',NULL,'4','2022-04-08 17:25:05','2022-04-14 18:30:44'),(58,'Chefe mafioso','10','Linux','152345.jpg','0','2022-04-14 18:23:46','2022-04-14 18:23:46');
 /*!40000 ALTER TABLE `presidente` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -258,11 +258,11 @@ CREATE TABLE `senador` (
   `numero` varchar(10) COLLATE utf8mb4_unicode_ci NOT NULL,
   `partido` varchar(60) COLLATE utf8mb4_unicode_ci NOT NULL,
   `imgCandidato` varchar(100) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
-  `qtdVotos` varchar(100) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  `qtdVotos` varchar(100) COLLATE utf8mb4_unicode_ci NOT NULL DEFAULT '0',
   `created_at` timestamp NULL DEFAULT current_timestamp(),
   `updated_at` timestamp NULL DEFAULT current_timestamp(),
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=13 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=16 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -271,7 +271,7 @@ CREATE TABLE `senador` (
 
 LOCK TABLES `senador` WRITE;
 /*!40000 ALTER TABLE `senador` DISABLE KEYS */;
-INSERT INTO `senador` VALUES (9,'Chico Balanceado','333','Pontuais Brasil','132229.jpg',NULL,'2022-04-06 16:22:30','2022-04-06 16:22:30'),(10,'Bruno Wayne','666','Bat Pronto','132313.jpg','1','2022-04-08 16:23:13','2022-04-08 18:20:14'),(11,'VOTO NULO','','NULO',NULL,NULL,'2022-04-08 16:28:34','2022-04-08 16:28:34'),(12,'VOTO BRANCO','','BRANCO',NULL,'5','2022-04-08 17:51:57','2022-04-08 19:04:53');
+INSERT INTO `senador` VALUES (11,'VOTO NULO','','NULO',NULL,'','2022-04-08 16:28:34','2022-04-08 16:28:34'),(12,'VOTO BRANCO','','BRANCO',NULL,'5','2022-04-08 17:51:57','2022-04-08 19:04:53'),(15,'Bruno Wayne','666','Bat Ponto','152612.jpg','0','2022-04-14 18:26:12','2022-04-14 18:26:12');
 /*!40000 ALTER TABLE `senador` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -293,7 +293,7 @@ CREATE TABLE `users` (
   `updated_at` timestamp NULL DEFAULT NULL,
   PRIMARY KEY (`id`),
   UNIQUE KEY `users_email_unique` (`email`)
-) ENGINE=InnoDB AUTO_INCREMENT=30 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=31 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -302,7 +302,7 @@ CREATE TABLE `users` (
 
 LOCK TABLES `users` WRITE;
 /*!40000 ALTER TABLE `users` DISABLE KEYS */;
-INSERT INTO `users` VALUES (6,'luis','luis@teste.com',NULL,'$2y$10$0CB4eMGaFc06e0LfzK84/.1VhodB5tW1bDKahMzAm/qgh6WevOpBm',NULL,NULL,NULL),(7,'Jonas','jonas@teste.com',NULL,'$2y$10$aJFxQfck3LFZgKd67.NqP.Q7iRbpLY94uOv74tKtfvrfZwAS4g5uK',NULL,NULL,NULL),(8,'fred','fred@teste.com',NULL,'$2y$10$Du6Feq4rWeN0mfnPx7rhfuNip.K4ALvb1BMa96ONcu53TbXefHD/S',NULL,NULL,NULL),(9,'bruno','bruno@teste.com',NULL,'$2y$10$wg8.Ponc5XLeJtDBCmWn2uaR1geE4P.nb/4SR8Dd7aNKm0aiIrWL6',NULL,NULL,NULL),(25,'nicolas','nicolas@teste.com',NULL,'$2y$10$3PjaDW5ZNIc9yINNxSGkSOljM6UQNU2/DsJ9CkjfnzWydJoR.7Kru',NULL,'2022-03-24 14:57:55','2022-03-24 14:57:55'),(29,'chefe','chefe@teste.com',NULL,'$2y$10$ZeXlT3D7sgRjlaGcDgjWou9qcPZQ1ol24fq1CDLqRST3VWebeYb4O',NULL,'2022-04-11 12:35:22','2022-04-11 12:35:22');
+INSERT INTO `users` VALUES (6,'luis','luis@teste.com',NULL,'$2y$10$0CB4eMGaFc06e0LfzK84/.1VhodB5tW1bDKahMzAm/qgh6WevOpBm',NULL,NULL,NULL),(7,'Jonas','jonas@teste.com',NULL,'$2y$10$aJFxQfck3LFZgKd67.NqP.Q7iRbpLY94uOv74tKtfvrfZwAS4g5uK',NULL,NULL,NULL),(8,'fred','fred@teste.com',NULL,'$2y$10$Du6Feq4rWeN0mfnPx7rhfuNip.K4ALvb1BMa96ONcu53TbXefHD/S',NULL,NULL,NULL),(9,'bruno','bruno@teste.com',NULL,'$2y$10$wg8.Ponc5XLeJtDBCmWn2uaR1geE4P.nb/4SR8Dd7aNKm0aiIrWL6',NULL,NULL,NULL),(25,'nicolas','nicolas@teste.com',NULL,'$2y$10$3PjaDW5ZNIc9yINNxSGkSOljM6UQNU2/DsJ9CkjfnzWydJoR.7Kru',NULL,'2022-03-24 14:57:55','2022-03-24 14:57:55'),(29,'chefe','chefe@teste.com',NULL,'$2y$10$ZeXlT3D7sgRjlaGcDgjWou9qcPZQ1ol24fq1CDLqRST3VWebeYb4O',NULL,'2022-04-11 12:35:22','2022-04-11 12:35:22'),(30,'Giulia Bernardi','giulia@teste.com',NULL,'$2y$10$sZw9lIqAezGlGTn9eVTYJeqQDGmrEoqngqdRUn9Jk7AAljjYoZ3RG',NULL,'2022-04-15 03:20:05','2022-04-15 03:20:05');
 /*!40000 ALTER TABLE `users` ENABLE KEYS */;
 UNLOCK TABLES;
 /*!40103 SET TIME_ZONE=@OLD_TIME_ZONE */;
@@ -315,4 +315,4 @@ UNLOCK TABLES;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2022-04-11 11:58:13
+-- Dump completed on 2022-04-19 15:56:34
